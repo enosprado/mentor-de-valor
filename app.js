@@ -111,7 +111,6 @@ const views = {
     if (rl) h += `<div class="card stack"><span class="label">Reflexão do dia</span><h3>${esc(rl.pergunta)}</h3>
       <textarea id="refl" data-refl="${rl.id}" placeholder="Escreva sua resposta (fica só no seu aparelho)">${esc(S.reflexoes[rl.id]?.texto || '')}</textarea>
       <span class="muted">Da lição <a href="#licao-${rl.id}">${esc(rl.titulo)}</a></span></div>`;
-    h += estudosHoje();
     const sk = streak();
     h += `<div class="card row" style="justify-content:space-between"><div><div class="label">Sequência</div><strong style="font:700 26px 'Space Grotesk'">${sk} ${sk === 1 ? 'dia' : 'dias'}</strong><div class="muted">com pelo menos um passo feito</div></div><a class="btn o" href="#mentor">Sessão de mentoria</a></div>`;
     h += installCard();
@@ -222,122 +221,9 @@ const views = {
 };
 
 
-/* ---------- estudos (pacotes de livro, guardados só neste aparelho) ---------- */
-S.livros ||= []; S.est ||= {};
-const PACK = id => { try { return JSON.parse(localStorage.getItem('mv:pack:' + id)); } catch (e) { return null; } };
-const NIVEL = {lembrar:'Lembrar', entender:'Entender', questionar:'Questionar', aplicar:'Aplicar', conectar:'Conectar'};
-const INTERVAL = [0, 1, 3, 7, 14, 30, 60];
-const addDays = n => { const d = new Date(); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10); };
-let capTab = 'entender', cardShow = false, revQueue = null;
-const est = id => (S.est[id] ||= {resp:{}, pista:{}, refl:{}, qi:{}, cards:{}, quiz:{}, feitos:[], aplic:{}});
-function dueCards(id, cn) {
-  const pk = PACK(id); if (!pk) return [];
-  const E = est(id), out = [], t = today();
-  pk.capitulos.forEach(c => { if (cn != null && c.n !== cn) return; if (cn == null && !(E.iniciados || []).includes(c.n)) return; (c.flashcards || []).forEach((f, i) => { const k = c.n + ':' + i, st = E.cards[k]; if (!st || st.due <= t) out.push({k, c, f}); }); });
-  return out;
-}
-function bookPct(id) { const pk = PACK(id); if (!pk) return 0; return Math.round(est(id).feitos.length / pk.capitulos.length * 100); }
-function estudosHoje() {
-  return S.livros.map(b => { const n = dueCards(b.id).length; return n ? `<div class="card row" style="justify-content:space-between"><div><div class="label">Revisão de estudo</div><strong>${esc(b.titulo)}</strong><div class="muted">${n} ${n === 1 ? 'cartão' : 'cartões'} para hoje</div></div><a class="btn g" href="#rev-${b.id}">Revisar</a></div>` : ''; }).join('');
-}
-function importPack(txt) {
-  const pk = JSON.parse(txt);
-  if (pk?.tipo !== 'mv-estudo' || !pk.id || !Array.isArray(pk.capitulos)) throw new Error('formato');
-  localStorage.setItem('mv:pack:' + pk.id, JSON.stringify(pk));
-  S.livros = S.livros.filter(b => b.id !== pk.id).concat([{id: pk.id, titulo: pk.titulo, autor: pk.autor || '', importado: today()}]);
-  save(); return pk;
-}
-Object.assign(views, {
-  estudos() {
-    $('#title').textContent = 'Estudos';
-    $('#v-estudos').innerHTML = `
-      ${S.livros.length ? `<div class="list">${S.livros.map(b => { const n = dueCards(b.id).length, pc = bookPct(b.id); return `<a class="li" href="#livro-${b.id}" style="text-decoration:none;color:inherit"><div class="meta"><span class="label">${esc(b.autor)}</span>${n ? `<span class="st">${n} p/ revisar</span>` : ''}</div><h3>${esc(b.titulo)}</h3><div class="progress"><i style="width:${pc}%"></i></div><span class="muted">${pc}% concluído</span></a>`; }).join('')}</div>`
-        : `<div class="card hero stack"><span class="label">Tutor socrático</span><h2>Estude livros capítulo por capítulo</h2><p>Cada capítulo vem com conceitos-chave, um diálogo socrático em que você pensa antes de ver a resposta, flashcards com revisão espaçada, um teste e um exercício de aplicação.</p></div>`}
-      <div class="card stack"><span class="label">Adicionar um livro</span>
-        <p class="muted">1. Envie o PDF do livro para o Claude, no chat. 2. Baixe o pacote de estudo (.json) que ele gerar. 3. Importe aqui. O pacote fica só neste aparelho.</p>
-        <label class="btn g w" style="cursor:pointer">Importar pacote de estudo<input type="file" accept=".json,application/json" id="importPack" hidden></label></div>`;
-  },
-  livro(id) {
-    const pk = PACK(id); if (!pk) { location.hash = '#estudos'; return; }
-    $('#title').textContent = 'Estudos';
-    const E = est(id), n = dueCards(id).length;
-    $('#v-livro').innerHTML = `<a class="back" href="#estudos" style="display:inline-block;text-decoration:none">← Estudos</a>
-      <div class="card stack"><span class="label">${esc(pk.autor || '')}</span><h2>${esc(pk.titulo)}</h2>${pk.mapa?.tese ? `<p>${esc(pk.mapa.tese)}</p>` : ''}
-        <div class="progress"><i style="width:${bookPct(id)}%"></i></div><span class="muted">${E.feitos.length} de ${pk.capitulos.length} capítulos concluídos</span>
-        ${n ? `<a class="btn g w" href="#rev-${id}">Revisar ${n} ${n === 1 ? 'cartão' : 'cartões'} de hoje</a>` : '<span class="muted">Nenhum cartão para revisar hoje.</span>'}</div>
-      ${pk.mapa?.estrutura?.length ? `<div class="card"><span class="label">Mapa do livro</span>${pk.mapa.estrutura.map(x => `<details><summary>${esc(x.parte || x.titulo || '')}</summary><p>${esc(x.ideia || x.resumo || '')}</p></details>`).join('')}</div>` : ''}
-      <div class="list">${pk.capitulos.map(c => `<a class="li" href="#cap-${id}~${c.n}" style="text-decoration:none;color:inherit"><div class="meta"><span class="label">Capítulo ${c.n}</span>${E.feitos.includes(c.n) ? '<span class="st done">Concluído</span>' : ''}</div><h3>${esc(c.titulo)}</h3></a>`).join('')}</div>
-      <button class="btn o w" style="margin-top:14px" data-delbook="${id}">Remover este livro do aparelho</button>`;
-  },
-  cap(arg) {
-    const [id, ns] = arg.split('~'), cn = +ns, pk = PACK(id), c = pk?.capitulos.find(x => x.n === cn);
-    if (!c) { location.hash = '#estudos'; return; }
-    $('#title').textContent = 'Capítulo ' + c.n;
-    const E = est(id), K = c.n + ':';
-    if (!(E.iniciados ||= []).includes(c.n)) { E.iniciados.push(c.n); save(); }
-    const tabs = [['entender','Entender'],['dialogo','Diálogo'],['cards','Flashcards'],['teste','Teste'],['aplicar','Aplicar']];
-    let body = '';
-    if (capTab === 'entender') {
-      body = `<div class="card stack"><span class="label">Resumo</span>${(c.resumo || '').split('\n').filter(Boolean).map(x => `<p>${esc(x)}</p>`).join('')}</div>
-        ${(c.conceitos || []).length ? `<div class="card"><span class="label">Conceitos-chave</span>${c.conceitos.map(k => `<details><summary>${esc(k.termo)}</summary><p>${esc(k.explicacao)}</p></details>`).join('')}</div>` : ''}
-        <button class="btn g w" data-ctab="dialogo">Começar o diálogo socrático</button>`;
-    } else if (capTab === 'dialogo') {
-      const qs = c.socratico || [], qi = Math.min(E.qi[c.n] || 0, qs.length);
-      if (qi >= qs.length) body = `<div class="card stack"><span class="label">Diálogo concluído</span><p>Você passou por todas as perguntas deste capítulo.</p><div class="row"><button class="btn g" data-ctab="cards">Ir para os flashcards</button><button class="btn o" data-qreset="${id}~${c.n}">Refazer o diálogo</button></div></div>`;
-      else {
-        const q = qs[qi], k = K + qi, np = E.pista[k] || 0, r = E.resp[k] || '', shown = E.refl[k];
-        body = `<div class="card stack"><div class="row" style="justify-content:space-between"><span class="label">Pergunta ${qi + 1} de ${qs.length}</span><span class="st">${NIVEL[q.nivel] || esc(q.nivel || '')}</span></div>
-          <h3>${esc(q.pergunta)}</h3>
-          <textarea data-resp="${id}|${k}" placeholder="Pense e escreva com suas palavras antes de pedir ajuda">${esc(r)}</textarea>
-          ${(q.pistas || []).slice(0, np).map((x, i) => `<div class="act"><b>Pista ${i + 1}</b>${esc(x)}</div>`).join('')}
-          <div class="row">${np < (q.pistas || []).length ? `<button class="btn o" data-pista="${id}|${k}">Pedir uma pista</button>` : ''}
-          ${shown ? '' : `<button class="btn g" data-refl2="${id}|${k}">Ver a reflexão do tutor</button>`}</div>
-          ${shown ? `<div class="act"><b>Reflexão do tutor</b>${esc(q.reflexao)}</div><p class="muted">Compare com a sua resposta: o que você viu que o tutor não disse? O que faltou?</p><button class="btn g w" data-qnext="${id}~${c.n}">Próxima pergunta</button>` : '<span class="muted">A reflexão aparece depois que você escrever sua resposta.</span>'}</div>`;
-      }
-    } else if (capTab === 'cards') {
-      const due = dueCards(id, c.n), all = (c.flashcards || []).length;
-      body = due.length ? flashcard(id, due[0], due.length) : `<div class="card stack"><span class="label">Flashcards</span><p>Nenhum cartão deste capítulo para hoje (${all} no total). Eles voltam nas datas certas para fixar na memória.</p><button class="btn g w" data-ctab="teste">Fazer o teste</button></div>`;
-    } else if (capTab === 'teste') {
-      const qz = c.quiz || [], res = E.quiz[c.n] || {}, ans = res.ans || {};
-      body = qz.map((q, i) => { const a = ans[i]; return `<div class="card stack"><span class="label">Questão ${i + 1}</span><h3>${esc(q.p)}</h3><div class="opts">${q.opcoes.map((o, j) => `<button class="opt" data-quiz="${id}~${c.n}~${i}~${j}" ${a != null ? 'disabled' : ''} aria-pressed="${a === j}" style="${a != null && j === q.certa ? 'border-color:var(--green);background:var(--mist)' : ''}">${esc(o)}${a === j ? (j === q.certa ? ' ✓' : ' ✗') : ''}</button>`).join('')}</div>${a != null ? `<p class="muted">${esc(q.explica || '')}</p>` : ''}</div>`; }).join('')
-        + (Object.keys(ans).length === qz.length && qz.length ? `<div class="card stack"><strong>Você acertou ${qz.filter((q, i) => ans[i] === q.certa).length} de ${qz.length}.</strong><div class="row"><button class="btn o" data-quizreset="${id}~${c.n}">Refazer</button><button class="btn g" data-ctab="aplicar">Ir para a aplicação</button></div></div>` : '');
-    } else {
-      const done = E.feitos.includes(c.n);
-      body = `<div class="card stack"><span class="label">Exercício de aplicação</span><p>${esc(c.aplicacao || '')}</p>
-        <textarea data-aplic="${id}|${c.n}" placeholder="Como você vai aplicar isso na sua vida? Escreva o plano.">${esc(E.aplic[c.n] || '')}</textarea>
-        ${done ? '<span class="st done">Capítulo concluído</span>' : `<button class="btn g w" data-capdone="${id}~${c.n}">Concluir capítulo</button>`}</div>`;
-    }
-    $('#v-cap').innerHTML = `<a class="back" href="#livro-${id}" style="display:inline-block;text-decoration:none">← ${esc(pk.titulo)}</a>
-      <h2 style="margin:4px 4px 12px">${esc(c.titulo)}</h2>
-      <div class="chips">${tabs.map(([k, t]) => `<button class="chip" data-ctab="${k}" aria-pressed="${capTab === k}">${t}</button>`).join('')}</div>${body}`;
-  },
-  rev(id) {
-    const pk = PACK(id); if (!pk) { location.hash = '#estudos'; return; }
-    $('#title').textContent = 'Revisão';
-    const due = dueCards(id);
-    $('#v-rev').innerHTML = `<a class="back" href="#livro-${id}" style="display:inline-block;text-decoration:none">← ${esc(pk.titulo)}</a>` + (due.length ? flashcard(id, due[0], due.length) : `<div class="card stack"><h2>Revisão em dia!</h2><p class="muted">Volte amanhã para os próximos cartões.</p></div>`);
-  }
-});
-function flashcard(id, it, total) {
-  return `<div class="card stack" style="min-height:240px"><div class="row" style="justify-content:space-between"><span class="label">Cap. ${it.c.n} · ${esc(it.c.titulo)}</span><span class="muted">${total} restantes</span></div>
-    <h3 style="font-size:20px">${esc(it.f.f)}</h3>
-    ${cardShow ? `<div class="act"><b>Resposta</b>${esc(it.f.v)}</div><p class="muted">Como foi?</p><div class="row"><button class="btn o" data-card="${id}|${it.k}|0">Errei</button><button class="btn o" data-card="${id}|${it.k}|1">Difícil</button><button class="btn g" data-card="${id}|${it.k}|2">Acertei</button></div>`
-      : `<p class="muted">Responda mentalmente (ou em voz alta) antes de virar.</p><button class="btn g w" data-flip>Mostrar resposta</button>`}</div>`;
-}
-function studyClick(d) {
-  if (d.ctab) { capTab = d.ctab; cardShow = false; route(); scrollTo(0, 0); return true; }
-  if (d.pista) { const [id, k] = d.pista.split('|'), E = est(id); E.pista[k] = (E.pista[k] || 0) + 1; save(); route(); return true; }
-  if (d.refl2) { const [id, k] = d.refl2.split('|'), E = est(id); if ((E.resp[k] || '').trim().length < 15) { toast('Escreva sua resposta primeiro. Pensar antes é o que fixa o aprendizado.'); return true; } E.refl[k] = true; logToday(); save(); route(); return true; }
-  if (d.qnext) { const [id, n] = d.qnext.split('~'), E = est(id); E.qi[n] = (E.qi[n] || 0) + 1; save(); route(); scrollTo(0, 0); return true; }
-  if (d.qreset) { const [id, n] = d.qreset.split('~'); est(id).qi[n] = 0; save(); route(); return true; }
-  if (d.flip !== undefined) { cardShow = true; route(); return true; }
-  if (d.card) { const [id, k, g] = d.card.split('|'), E = est(id), st = E.cards[k] || {box: 0}; const box = g === '0' ? 0 : g === '1' ? Math.max(1, st.box) : Math.min(st.box + 1, INTERVAL.length - 1); E.cards[k] = {box, due: addDays(g === '0' ? 1 : INTERVAL[box] || 1)}; cardShow = false; logToday(); save(); route(); return true; }
-  if (d.quiz) { const [id, n, i, j] = d.quiz.split('~'), E = est(id); (E.quiz[n] ||= {ans: {}}).ans[i] = +j; logToday(); save(); route(); return true; }
-  if (d.quizreset) { const [id, n] = d.quizreset.split('~'); est(id).quiz[n] = {ans: {}}; save(); route(); return true; }
-  if (d.capdone) { const [id, n] = d.capdone.split('~'), E = est(id); if (!E.feitos.includes(+n)) E.feitos.push(+n); logToday(); save(); toast('Capítulo concluído!'); location.hash = '#livro-' + id; return true; }
-  if (d.delbook) { if (S._del !== d.delbook) { S._del = d.delbook; toast('Toque de novo para confirmar a remoção.'); return true; } localStorage.removeItem('mv:pack:' + d.delbook); S.livros = S.livros.filter(b => b.id !== d.delbook); delete S.est[d.delbook]; delete S._del; save(); location.hash = '#estudos'; return true; }
-  return false;
-}
+/* limpeza: a área de Estudos foi removida; apaga livros guardados de versões anteriores */
+try { Object.keys(localStorage).filter(k => k.startsWith('mv:pack:')).forEach(k => localStorage.removeItem(k)); } catch (e) {}
+if (S.livros || S.est) { delete S.livros; delete S.est; save(); }
 
 function status(p) { return p.status === 'aplicado' ? '<span class="st done">Aplicada</span>' : p.status === 'aplicando' ? '<span class="st">Em andamento</span>' : p.status === 'pausada' ? '<span class="st">Pausada</span>' : ''; }
 function card(l) {
@@ -357,12 +243,9 @@ function route() {
   const h = (location.hash || '#hoje').slice(1);
   let name = h, arg = null;
   if (h.startsWith('licao-')) { name = 'licao'; arg = h.slice(6); }
-  else if (h.startsWith('livro-')) { name = 'livro'; arg = h.slice(6); }
-  else if (h.startsWith('cap-')) { name = 'cap'; arg = h.slice(4); if (route.cap !== arg) { capTab = 'entender'; cardShow = false; route.cap = arg; } }
-  else if (h.startsWith('rev-')) { name = 'rev'; arg = h.slice(4); }
   if (!views[name]) name = 'hoje';
   document.querySelectorAll('.view').forEach(v => v.classList.toggle('on', v.id === 'v-' + name));
-  const tab = name === 'licao' ? 'biblioteca' : name === 'perfil' ? 'progresso' : ['livro', 'cap', 'rev'].includes(name) ? 'estudos' : name;
+  const tab = name === 'licao' ? 'biblioteca' : name === 'perfil' ? 'progresso' : name;
   document.querySelectorAll('nav.tabs a').forEach(a => a.dataset.tab === tab ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
   const n = S.perfil?.nome; $('#hi').textContent = n ? `Olá, ${n}!` : 'Olá!';
   views[name](arg);
@@ -374,7 +257,6 @@ addEventListener('hashchange', () => { const toTop = !(lastHash.startsWith('#lic
 document.addEventListener('click', e => {
   const t = e.target.closest('button,[data-go]'); if (!t) return;
   const d = t.dataset;
-  if (studyClick(d)) return;
   if (d.accept) accept(d.accept);
   else if (d.day) { const [id, i] = d.day.split(':'); toggleDay(id, +i); }
   else if (d.f) { filter = d.f; views.biblioteca(); }
@@ -394,7 +276,6 @@ document.addEventListener('click', e => {
 let reflTimer;
 document.addEventListener('input', e => {
   if (e.target.id === 'search') { search = e.target.value; clearTimeout(reflTimer); reflTimer = setTimeout(() => { const pos = e.target.selectionStart; views.biblioteca(); const s = $('#search'); s.focus(); s.setSelectionRange(pos, pos); }, 250); }
-  else if (e.target.dataset.resp || e.target.dataset.aplic) { const [id, k] = (e.target.dataset.resp || e.target.dataset.aplic).split('|'), v = e.target.value, isA = !!e.target.dataset.aplic; clearTimeout(reflTimer); reflTimer = setTimeout(() => { const E = est(id); (isA ? E.aplic : E.resp)[k] = v; save(); }, 400); }
   else if (e.target.dataset.refl) { const id = e.target.dataset.refl, v = e.target.value; clearTimeout(reflTimer); reflTimer = setTimeout(() => { S.reflexoes[id] = {texto: v, at: today()}; if (v.trim()) logToday(); save(); }, 500); }
 });
 document.addEventListener('submit', e => {
@@ -405,19 +286,17 @@ document.addEventListener('submit', e => {
   }
 });
 document.addEventListener('change', e => {
-  if (e.target.id === 'importPack' && e.target.files[0]) { e.target.files[0].text().then(txt => { const pk = importPack(txt); toast('Livro importado: ' + pk.titulo); location.hash = '#livro-' + pk.id; }).catch(err => toast(err?.name === 'QuotaExceededError' ? 'Sem espaço no aparelho para este livro.' : 'Arquivo de estudo inválido.')); return; }
   if (e.target.id !== 'import' || !e.target.files[0]) return;
   e.target.files[0].text().then(txt => {
     const d = JSON.parse(txt);
     if (!d || typeof d !== 'object' || !d.prog) throw new Error('formato');
-    const pin = S.pinHash; (d.pacotes || []).forEach(pk => { try { localStorage.setItem('mv:pack:' + pk.id, JSON.stringify(pk)); } catch (err) {} }); delete d.pacotes;
-    S = {...d, pinHash: pin}; S.prog ||= {}; S.reflexoes ||= {}; S.log ||= []; S.livros ||= []; S.est ||= {};
+    const pin = S.pinHash; delete d.pacotes; delete d.livros; delete d.est;
+    S = {...d, pinHash: pin}; S.prog ||= {}; S.reflexoes ||= {}; S.log ||= [];
     save(); toast('Backup restaurado.'); route();
   }).catch(() => toast('Arquivo de backup inválido.'));
 });
 function exportData() {
   const {pinHash, ...data} = S;
-  data.pacotes = S.livros.map(b => PACK(b.id)).filter(Boolean);
   const blob = new Blob([JSON.stringify({...data, exportadoEm: new Date().toISOString()}, null, 2)], {type: 'application/json'});
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `mentor-de-valor-backup-${today()}.json`;
   document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);

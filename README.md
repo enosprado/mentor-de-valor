@@ -5,7 +5,6 @@ PWA (aplicativo instalável) que transforma ensinamentos de vídeos do YouTube c
 - **Hoje**: missão em andamento, passo do dia, reflexão e sequência.
 - **Mentor**: sessão guiada (desafio + momento → diagnóstico e lições recomendadas).
 - **Biblioteca**: lições com exemplo por perfil, plano de 7 dias, perguntas do mentor e link para o minuto do vídeo.
-- **Estudos**: tutor socrático para livros, com pacotes de estudo importados (ficam só no aparelho).
 - **Progresso**: diário, reflexões, vídeos analisados, PIN e backup.
 
 Funciona offline e não tem servidor: perfil, progresso e PIN ficam salvos apenas no aparelho (localStorage).

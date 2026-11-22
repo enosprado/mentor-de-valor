@@ -1,7 +1,7 @@
 /* Mentor de Valor — service worker
    App shell: cache primeiro (funciona offline).
    Dados (data/*.json): rede primeiro, para lições novas aparecerem assim que publicadas. */
-const VERSION = 'mv-v4';
+const VERSION = 'mv-v5';
 const SHELL = [
   './', './index.html', './app.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png',
