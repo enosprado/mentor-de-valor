@@ -233,7 +233,7 @@ const est = id => (S.est[id] ||= {resp:{}, pista:{}, refl:{}, qi:{}, cards:{}, q
 function dueCards(id, cn) {
   const pk = PACK(id); if (!pk) return [];
   const E = est(id), out = [], t = today();
-  pk.capitulos.forEach(c => { if (cn != null && c.n !== cn) return; (c.flashcards || []).forEach((f, i) => { const k = c.n + ':' + i, st = E.cards[k]; if (!st || st.due <= t) out.push({k, c, f}); }); });
+  pk.capitulos.forEach(c => { if (cn != null && c.n !== cn) return; if (cn == null && !(E.iniciados || []).includes(c.n)) return; (c.flashcards || []).forEach((f, i) => { const k = c.n + ':' + i, st = E.cards[k]; if (!st || st.due <= t) out.push({k, c, f}); }); });
   return out;
 }
 function bookPct(id) { const pk = PACK(id); if (!pk) return 0; return Math.round(est(id).feitos.length / pk.capitulos.length * 100); }
@@ -274,6 +274,7 @@ Object.assign(views, {
     if (!c) { location.hash = '#estudos'; return; }
     $('#title').textContent = 'Capítulo ' + c.n;
     const E = est(id), K = c.n + ':';
+    if (!(E.iniciados ||= []).includes(c.n)) { E.iniciados.push(c.n); save(); }
     const tabs = [['entender','Entender'],['dialogo','Diálogo'],['cards','Flashcards'],['teste','Teste'],['aplicar','Aplicar']];
     let body = '';
     if (capTab === 'entender') {
