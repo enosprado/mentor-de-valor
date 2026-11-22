@@ -102,7 +102,7 @@ a{color:var(--green-ink)}
   <form class="box" id="lockForm">
     <h2 id="lockT">Mentor de Valor</h2>
     <p id="lockMsg">Digite seu PIN</p>
-    <input id="pin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="8" autocomplete="off" placeholder="4 a 8 números" aria-label="PIN">
+    <input id="pin" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="8" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="4 a 8 números" aria-label="Código numérico do app" style="-webkit-text-security:disc">
     <button class="btn" id="lockBtn">Entrar</button>
     <button class="link" type="button" id="lockSkip" hidden>Usar sem PIN</button>
   </form>
