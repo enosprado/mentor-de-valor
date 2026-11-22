@@ -1,0 +1,348 @@
+/* Mentor de Valor — PWA (sem servidor, sem custo).
+   Conteúdo: data/licoes.json e data/videos.json (atualizados quando novas lições são publicadas).
+   Seus dados (perfil, progresso, diário, PIN) ficam só neste aparelho (localStorage). */
+{
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const CAT = {vida:'Dia a dia', carreira:'Profissional', negocio:'Negócio'};
+const MOMENTOS = [
+  ['clt','Trabalho CLT / emprego'],['empreender','Quero abrir um negócio'],['negocio','Já tenho um negócio'],
+  ['liberal','Sou profissional liberal'],['estudante','Estudante / começando']];
+const EXKEY = {clt:'clt', empreender:'empreender', negocio:'negocio', liberal:'negocio', estudante:'empreender'};
+const EXLABEL = {clt:'Se você é CLT', empreender:'Se você quer empreender', negocio:'Se você já tem negócio'};
+const DESAFIOS = {
+  vender:{t:'Vender e conseguir clientes', d:'Quase todo problema de dinheiro e de negócio passa por vendas. Nos vídeos, o Flávio trata vender como a habilidade que dá liberdade: com ela, você deixa de depender de quem decide quanto você ganha. O caminho é treinar com volume e medir.'},
+  precificar:{t:'Cobrar o preço certo', d:'Preço baixo costuma esconder dois problemas: não saber o valor que você gera e um modelo sem margem. A linha dos vídeos é clara: preço vem do retorno que você entrega, e margem é a recompensa pelo seu esforço.'},
+  decidir:{t:'Tomar uma decisão que estou adiando', d:'Decisões travadas quase sempre têm um medo que nunca foi escrito. A ferramenta mais usada pelo Flávio é simples: colocar no papel o pior cenário e ver se ele é suportável sem arriscar o que mais importa.'},
+  foco:{t:'Foco e disciplina', d:'Falta de resultado pode ser falta de intensidade, caminho errado ou pouco tempo. Antes de se cobrar mais, faça o diagnóstico. Depois, ponha energia só no que você controla.'},
+  dinheiro:{t:'Organizar e aumentar meu dinheiro', d:'Nos vídeos, a visão é que ninguém enriquece só cortando gastos: o salto vem de produzir mais. Ao mesmo tempo, gaste menos do que ganha, não arrisque em investimentos que não entende e leia a fase da sua vida antes de imobilizar dinheiro.'},
+  comecar:{t:'Começar um negócio ou projeto', d:'Começar não é abrir CNPJ, é validar. Passe a ideia pelo filtro (dor, causa, margem, recorrência, impostos), procure necessidades mal atendidas e faça a primeira venda antes de investir pesado.'},
+  ia:{t:'Me adaptar à inteligência artificial', d:'A mudança é real: o Flávio cita uma área da empresa dele que vai encolher de 200 para cerca de 20 pessoas. O conselho é estudar, agir e trocar a ansiedade por uso prático, focando no que só você faz.'},
+  mentalidade:{t:'Confiança e mentalidade', d:'Confiança se constrói com vitórias que você reconhece como suas. Combine gratidão com inconformismo, aceite que estabilidade não existe e ponha cada coisa no devido lugar: assim o risco fica pequeno.'}
+};
+
+/* ---------- estado local ---------- */
+const KEY = 'mv:state:v1';
+let S = (() => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } })();
+S.prog ||= {}; S.reflexoes ||= {}; S.log ||= []; S.perfil ||= null;
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { toast('Não consegui salvar neste aparelho.'); } };
+
+let L = [], V = [], dataDate = '', news = [], mentor = {step: 1, desafio: null, momento: null}, filter = 'todas', search = '';
+let deferredInstall = null;
+
+const today = () => new Date().toISOString().slice(0, 10);
+const fmt = d => { try { return new Date(d + (d.length === 10 ? 'T12:00:00' : '')).toLocaleDateString('pt-BR', {day:'2-digit', month:'short', year:'numeric'}); } catch (e) { return d; } };
+const mmss = t => { t |= 0; const h = Math.floor(t/3600), m = Math.floor(t%3600/60), s = t%60; return (h ? h + ':' + String(m).padStart(2,'0') : m) + ':' + String(s).padStart(2,'0'); };
+const yt = (id, t) => `https://www.youtube.com/watch?v=${encodeURIComponent(id)}${t ? `&t=${t|0}s` : ''}`;
+const byId = id => L.find(l => l.id === id);
+const vid = id => V.find(v => v.id === id) || {};
+const exKey = () => EXKEY[S.perfil?.momento] || null;
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('on'), 2600); }
+
+function streak() {
+  const set = new Set(S.log); let n = 0; const d = new Date();
+  if (!set.has(today())) d.setDate(d.getDate() - 1);
+  while (set.has(d.toISOString().slice(0, 10))) { n++; d.setDate(d.getDate() - 1); }
+  return n;
+}
+function logToday() { if (!S.log.includes(today())) { S.log.push(today()); S.log = S.log.slice(-400); } }
+function current() { return L.find(l => S.prog[l.id]?.status === 'aplicando') || null; }
+function suggestion() {
+  const pool = L.filter(l => !S.prog[l.id]);
+  const foco = S.perfil?.foco;
+  return pool.find(l => foco && l.categoria === foco) || pool[0] || null;
+}
+function daysDone(id) { return (S.prog[id]?.dias || []).filter(Boolean).length; }
+
+/* ---------- ações ---------- */
+function accept(id) {
+  const cur = current();
+  if (cur && cur.id !== id && !confirmSwap(cur)) return;
+  S.prog[id] = {...(S.prog[id] || {}), status:'aplicando', desde: today(), dias: S.prog[id]?.dias || Array(7).fill(false)};
+  save(); toast('Missão aceita. Um passo por dia.'); location.hash = '#licao-' + id; route();
+}
+function confirmSwap(cur) {
+  // troca de missão: a anterior volta para "pendente", mantendo os dias marcados
+  S.prog[cur.id].status = 'pausada'; return true;
+}
+function toggleDay(id, i) {
+  const p = S.prog[id]; if (!p) return;
+  p.dias ||= Array(7).fill(false); p.dias[i] = !p.dias[i];
+  if (p.dias[i]) logToday();
+  save(); route();
+  if (p.dias[i] && p.dias.every(Boolean)) toast('Plano completo! Registre o que mudou.');
+}
+function finish(id, nota) {
+  S.prog[id] = {...(S.prog[id] || {}), status:'aplicado', nota, at: today()};
+  logToday(); save(); toast('Lição registrada no seu diário.');
+  const next = suggestion(); location.hash = next ? '#hoje' : '#progresso'; route();
+}
+function markSeen(ids) { S.seen = [...new Set([...(S.seen || []), ...ids])]; news = L.filter(l => !S.seen.includes(l.id)).map(l => l.id); save(); }
+
+/* ---------- views ---------- */
+const views = {
+  hoje() {
+    $('#title').textContent = 'Sua missão';
+    const cur = current(), sug = suggestion();
+    let h = '';
+    if (news.length) h += `<div class="banner"><span><strong>${news.length} ${news.length === 1 ? 'lição nova' : 'lições novas'}</strong> de vídeos recentes</span><button data-go="novas">Ver</button></div>`;
+    if (!S.perfil) h += `<div class="card hero stack"><span class="label">Comece aqui</span><h2>Configure seu mentor em 1 minuto</h2><p class="muted">Conte seu momento e seu objetivo. O app adapta os exemplos e sugere a missão certa para você.</p><a class="btn g w" href="#perfil">Configurar</a></div>`;
+    if (cur) {
+      const p = S.prog[cur.id], i = (p.dias || []).findIndex(x => !x), done = daysDone(cur.id);
+      h += `<div class="card ${S.perfil ? 'hero' : ''} stack"><span class="label">Missão em andamento · ${CAT[cur.categoria]}</span><h2>${esc(cur.titulo)}</h2>
+        <div class="progress" aria-label="${done} de 7 passos"><i style="width:${done/7*100}%"></i></div><span class="muted">${done} de 7 passos</span>
+        ${i >= 0 ? `<button class="day" data-day="${cur.id}:${i}"><span class="box"></span><span class="txt"><span class="n">Passo de hoje · ${i+1} de 7</span>${esc(cur.plano[i])}</span></button>`
+                 : `<div class="act"><b>Plano concluído</b>Registre o que você fez e o que mudou.</div>`}
+        <div class="row"><a class="btn o" href="#licao-${cur.id}">Ver missão completa</a>${i < 0 ? `<a class="btn g" href="#licao-${cur.id}">Registrar aplicação</a>` : ''}</div></div>`;
+    } else if (sug) {
+      h += `<div class="card ${S.perfil ? 'hero' : ''} stack"><span class="label">Missão sugerida · ${CAT[sug.categoria]}</span><h2>${esc(sug.titulo)}</h2><p>${esc(sug.ideia)}</p>
+        <div class="act"><b>Sua ação</b>${esc(sug.acao)}</div>
+        <div class="row"><button class="btn g" data-accept="${sug.id}">Aceitar missão de 7 dias</button><a class="btn o" href="#licao-${sug.id}">Ver detalhes</a></div></div>`;
+    } else if (L.length) {
+      h += `<div class="card hero stack"><span class="label">Parabéns</span><h2>Você aplicou todas as lições disponíveis</h2><p class="muted">Novas lições aparecem aqui quando novos vídeos forem analisados. Revise seu diário enquanto isso.</p></div>`;
+    }
+    const rl = L.length ? L[(new Date().getDate() + new Date().getMonth()) % L.length] : null;
+    if (rl) h += `<div class="card stack"><span class="label">Reflexão do dia</span><h3>${esc(rl.pergunta)}</h3>
+      <textarea id="refl" data-refl="${rl.id}" placeholder="Escreva sua resposta (fica só no seu aparelho)">${esc(S.reflexoes[rl.id]?.texto || '')}</textarea>
+      <span class="muted">Da lição <a href="#licao-${rl.id}">${esc(rl.titulo)}</a></span></div>`;
+    const sk = streak();
+    h += `<div class="card row" style="justify-content:space-between"><div><div class="label">Sequência</div><strong style="font:700 26px 'Space Grotesk'">${sk} ${sk === 1 ? 'dia' : 'dias'}</strong><div class="muted">com pelo menos um passo feito</div></div><a class="btn o" href="#mentor">Sessão de mentoria</a></div>`;
+    h += installCard();
+    $('#v-hoje').innerHTML = h;
+  },
+
+  biblioteca() {
+    $('#title').textContent = 'Biblioteca';
+    const opts = [['todas','Todas'],['vida','Dia a dia'],['carreira','Profissional'],['negocio','Negócio'],['pendentes','Não aplicadas'],...(news.length ? [['novas',`Novas (${news.length})`]] : [])];
+    let list = L;
+    if (filter === 'pendentes') list = list.filter(l => S.prog[l.id]?.status !== 'aplicado');
+    else if (filter === 'novas') list = list.filter(l => news.includes(l.id));
+    else if (filter !== 'todas') list = list.filter(l => l.categoria === filter);
+    if (search) { const q = search.toLowerCase(); list = list.filter(l => (l.titulo + ' ' + l.ideia + ' ' + (l.tags || []).join(' ')).toLowerCase().includes(q)); }
+    $('#v-biblioteca').innerHTML = `<input id="search" type="search" placeholder="Buscar: preço, vendas, medo…" value="${esc(search)}" aria-label="Buscar lições" style="margin-bottom:10px">
+      <div class="chips">${opts.map(([k,t]) => `<button class="chip" data-f="${k}" aria-pressed="${filter === k}">${t}</button>`).join('')}</div>
+      <div class="list">${list.length ? list.map(card).join('') : '<div class="empty">Nada encontrado.</div>'}</div>`;
+    if (filter === 'novas') markSeen(list.map(l => l.id));
+  },
+
+  licao(id) {
+    const l = byId(id); if (!l) { location.hash = '#biblioteca'; return; }
+    if (!(S.seen || []).includes(id)) markSeen([id]);
+    $('#title').textContent = CAT[l.categoria];
+    const p = S.prog[id] || {}, v = vid(l.video), k = exKey();
+    const ex = k ? `<div class="act"><b>${EXLABEL[k]}</b>${esc(l.exemplos[k])}</div>`
+                 : Object.entries(l.exemplos).map(([kk, t]) => `<div class="act"><b>${EXLABEL[kk]}</b>${esc(t)}</div>`).join('');
+    const ativo = p.status === 'aplicando';
+    $('#v-licao').innerHTML = `<button class="back" data-back>← Voltar</button>
+      <div class="card stack"><div class="row" style="justify-content:space-between"><span class="label">${CAT[l.categoria]}</span>${status(p)}</div>
+        <h2>${esc(l.titulo)}</h2><p>${esc(l.ideia)}</p>
+        <a class="muted" href="${yt(l.video, l.inicio)}" target="_blank" rel="noopener">▶ ${esc(v.titulo || 'Assistir no YouTube')} · ${mmss(l.inicio)}</a></div>
+      <div class="card stack"><span class="label">No seu caso</span>${ex}${k ? '' : '<a href="#perfil" class="muted">Configure seu perfil para ver só o exemplo do seu momento.</a>'}</div>
+      <div class="card stack"><span class="label">Ação prática</span><p>${esc(l.acao)}</p></div>
+      <div class="card stack"><div class="row" style="justify-content:space-between"><span class="label">Plano de 7 dias</span>${ativo ? `<span class="muted">${daysDone(id)}/7</span>` : ''}</div>
+        <div class="days">${l.plano.map((s, i) => { const ok = p.dias?.[i];
+          return ativo ? `<button class="day ${ok ? 'ok' : ''}" data-day="${id}:${i}" aria-pressed="${!!ok}"><span class="box">${ok ? '✓' : ''}</span><span class="txt"><span class="n">Dia ${i+1}</span>${esc(s)}</span></button>`
+                       : `<div class="day ${ok ? 'ok' : ''}" style="cursor:default"><span class="box">${ok ? '✓' : ''}</span><span class="txt"><span class="n">Dia ${i+1}</span>${esc(s)}</span></div>`; }).join('')}</div>
+        ${p.status === 'aplicado' ? '' : ativo ? '' : `<button class="btn g w" data-accept="${id}">${p.status === 'pausada' ? 'Retomar esta missão' : 'Aceitar missão de 7 dias'}</button>`}</div>
+      <div class="card"><span class="label">Perguntas do mentor</span>${l.faq.map(f => `<details><summary>${esc(f.p)}</summary><p>${esc(f.r)}</p></details>`).join('')}</div>
+      <div class="card stack"><span class="label">Para refletir</span><h3>${esc(l.pergunta)}</h3>
+        <textarea data-refl="${id}" placeholder="Sua resposta">${esc(S.reflexoes[id]?.texto || '')}</textarea></div>
+      ${ativo || p.status === 'aplicado' ? `<div class="card stack"><span class="label">${p.status === 'aplicado' ? 'Seu registro' : 'Registrar aplicação'}</span>
+        <textarea id="nota" placeholder="O que você fez e o que mudou?">${esc(p.nota || '')}</textarea>
+        <button class="btn ${p.status === 'aplicado' ? 'o' : 'g'} w" data-finish="${id}">${p.status === 'aplicado' ? 'Atualizar registro' : 'Concluir e registrar'}</button></div>` : ''}`;
+  },
+
+  mentor() {
+    $('#title').textContent = 'Sessão de mentoria';
+    const m = mentor; let h = '';
+    if (m.step === 1) {
+      h = `<div class="card stack"><span class="label">Passo 1 de 2</span><h2>O que mais te trava agora?</h2>
+        <div class="opts">${Object.entries(DESAFIOS).map(([k, d]) => `<button class="opt" data-des="${k}" aria-pressed="${m.desafio === k}">${d.t}</button>`).join('')}</div></div>`;
+    } else if (m.step === 2) {
+      h = `<button class="back" data-mstep="1">← Voltar</button><div class="card stack"><span class="label">Passo 2 de 2</span><h2>Qual é o seu momento?</h2>
+        <div class="opts">${MOMENTOS.map(([k, t]) => `<button class="opt" data-mom="${k}" aria-pressed="${m.momento === k}">${t}</button>`).join('')}</div></div>`;
+    } else {
+      const d = DESAFIOS[m.desafio], k = EXKEY[m.momento];
+      const recs = L.filter(l => (l.desafios || []).includes(m.desafio))
+        .sort((a, b) => (S.prog[a.id]?.status === 'aplicado') - (S.prog[b.id]?.status === 'aplicado') || (b.categoria === S.perfil?.foco) - (a.categoria === S.perfil?.foco))
+        .slice(0, 3);
+      h = `<button class="back" data-mstep="1">← Recomeçar</button>
+        <div class="card stack"><span class="label">Diagnóstico</span><h2>${d.t}</h2><p>${d.d}</p></div>
+        <h3 style="margin:18px 4px 10px">Seu plano: comece por estas lições</h3>
+        ${recs.map((l, i) => `<div class="card stack"><span class="label">${i === 0 ? 'Prioridade 1' : 'Depois'} · ${CAT[l.categoria]}</span><h3>${esc(l.titulo)}</h3>
+          <div class="act"><b>${EXLABEL[k]}</b>${esc(l.exemplos[k])}</div>
+          <div class="row">${S.prog[l.id]?.status === 'aplicado' ? '<span class="st done">Já aplicada</span>' : S.prog[l.id]?.status === 'aplicando' ? '<span class="st">Em andamento</span>' : `<button class="btn g" data-accept="${l.id}">Começar esta missão</button>`}<a class="btn o" href="#licao-${l.id}">Ver lição</a></div></div>`).join('') || '<div class="empty">Ainda não há lições para esse tema.</div>'}
+        <p class="muted" style="margin:12px 4px">Este mentor é baseado nas ideias públicas do Flávio Augusto e não fala em nome dele. Para decisões jurídicas, contábeis ou de investimento, procure um profissional.</p>`;
+    }
+    $('#v-mentor').innerHTML = h;
+  },
+
+  progresso() {
+    $('#title').textContent = 'Seu progresso';
+    const ap = L.filter(l => S.prog[l.id]?.status === 'aplicado');
+    const cats = Object.entries(CAT).map(([k, t]) => { const ls = L.filter(l => l.categoria === k), d = ls.filter(l => S.prog[l.id]?.status === 'aplicado').length; return `<div><div class="row" style="justify-content:space-between"><span>${t}</span><span class="muted">${d}/${ls.length}</span></div><div class="progress"><i style="width:${ls.length ? d/ls.length*100 : 0}%"></i></div></div>`; }).join('');
+    const refl = Object.entries(S.reflexoes).filter(([, r]) => r.texto).sort((a, b) => (b[1].at || '').localeCompare(a[1].at || ''));
+    $('#v-progresso').innerHTML = `
+      <div class="stats" style="margin-bottom:14px"><div class="stat"><div class="n">${ap.length}</div><div class="muted">aplicadas</div></div><div class="stat"><div class="n">${streak()}</div><div class="muted">dias seguidos</div></div><div class="stat"><div class="n">${L.length}</div><div class="muted">lições</div></div></div>
+      <div class="card stack">${cats}</div>
+      <div class="card stack"><span class="label">Diário de aplicação</span>${ap.length ? ap.sort((a, b) => (S.prog[b.id].at || '').localeCompare(S.prog[a.id].at || '')).map(l => `<a class="vid" href="#licao-${l.id}"><strong>${esc(l.titulo)}</strong><div class="muted">${fmt(S.prog[l.id].at)} · ${esc(S.prog[l.id].nota || 'sem anotação')}</div></a>`).join('') : '<p class="muted">Quando você concluir uma missão, ela aparece aqui com sua anotação.</p>'}</div>
+      ${refl.length ? `<div class="card stack"><span class="label">Suas reflexões</span>${refl.slice(0, 10).map(([id, r]) => `<a class="vid" href="#licao-${id}"><strong>${esc(byId(id)?.pergunta || '')}</strong><div class="muted">${esc(r.texto)}</div></a>`).join('')}</div>` : ''}
+      <div class="card stack"><span class="label">Vídeos analisados</span>${[...V].sort((a, b) => (b.data || '').localeCompare(a.data || '')).map(v => `<a class="vid" href="${yt(v.id)}" target="_blank" rel="noopener"><strong>${esc(v.titulo)}</strong><div class="muted">${esc(v.canal)} · ${fmt(v.data)}</div></a>`).join('')}
+        <span class="muted">Conteúdo atualizado em ${dataDate ? fmt(dataDate) : '—'}</span><button class="btn o w" data-check>Verificar lições novas</button></div>
+      <div class="card stack"><span class="label">Configurações</span>
+        <a class="btn o w" href="#perfil">Editar meu perfil</a>
+        <button class="btn o w" data-pin>${S.pinHash ? 'Alterar ou remover PIN' : 'Proteger com PIN'}</button>
+        <button class="btn o w" data-export>Baixar backup dos meus dados</button>
+        <label class="btn o w" style="cursor:pointer">Restaurar backup<input type="file" accept="application/json" id="import" hidden></label>
+        <p class="muted">Seus dados ficam só neste aparelho. Faça backup antes de trocar de celular ou limpar o navegador.</p></div>
+      ${installCard()}`;
+  },
+
+  perfil() {
+    $('#title').textContent = 'Meu perfil';
+    const p = S.perfil || {};
+    $('#v-perfil').innerHTML = `<form class="card stack" id="pform">
+      <label class="f">Como quer ser chamado?<input id="pf_nome" value="${esc(p.nome || '')}" autocomplete="given-name"></label>
+      <label class="f">Momento atual<select id="pf_mom">${MOMENTOS.map(([k, t]) => `<option value="${k}" ${p.momento === k ? 'selected' : ''}>${t}</option>`).join('')}</select></label>
+      <label class="f">Foco principal agora<select id="pf_foco"><option value="">Todos</option>${Object.entries(CAT).map(([k, t]) => `<option value="${k}" ${p.foco === k ? 'selected' : ''}>${t}</option>`).join('')}</select></label>
+      <label class="f">Meu objetivo para os próximos 12 meses<input id="pf_obj" value="${esc(p.objetivo || '')}" placeholder="Ex.: faturar R$ 20 mil/mês com minha consultoria"></label>
+      <button class="btn g w">Salvar</button></form>`;
+  }
+};
+
+function status(p) { return p.status === 'aplicado' ? '<span class="st done">Aplicada</span>' : p.status === 'aplicando' ? '<span class="st">Em andamento</span>' : p.status === 'pausada' ? '<span class="st">Pausada</span>' : ''; }
+function card(l) {
+  const p = S.prog[l.id] || {};
+  return `<a class="li" href="#licao-${l.id}" style="text-decoration:none;color:inherit"><div class="meta"><span class="label">${CAT[l.categoria]}${news.includes(l.id) ? ' · nova' : ''}</span>${status(p)}</div><h3>${esc(l.titulo)}</h3><p class="muted">${esc(l.acao)}</p></a>`;
+}
+function installCard() {
+  const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  if (standalone) return '';
+  if (deferredInstall) return `<div class="card stack"><span class="label">Instale o app</span><p class="muted">Tenha o Mentor na tela inicial, abrindo como aplicativo e funcionando sem internet.</p><button class="btn g w" data-install>Instalar</button></div>`;
+  if (/iphone|ipad|ipod/i.test(navigator.userAgent)) return `<div class="card stack"><span class="label">Instale o app</span><p class="muted">No Safari, toque em Compartilhar e depois em “Adicionar à Tela de Início”.</p></div>`;
+  return '';
+}
+
+/* ---------- rotas ---------- */
+function route() {
+  const h = (location.hash || '#hoje').slice(1);
+  let name = h, arg = null;
+  if (h.startsWith('licao-')) { name = 'licao'; arg = h.slice(6); }
+  if (!views[name]) name = 'hoje';
+  document.querySelectorAll('.view').forEach(v => v.classList.toggle('on', v.id === 'v-' + name));
+  const tab = name === 'licao' ? 'biblioteca' : name === 'perfil' ? 'progresso' : name;
+  document.querySelectorAll('nav.tabs a').forEach(a => a.dataset.tab === tab ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
+  const n = S.perfil?.nome; $('#hi').textContent = n ? `Olá, ${n}!` : 'Olá!';
+  views[name](arg);
+}
+let lastHash = location.hash;
+addEventListener('hashchange', () => { const toTop = !(lastHash.startsWith('#licao') && location.hash === '#biblioteca'); lastHash = location.hash; route(); if (toTop) scrollTo(0, 0); });
+
+/* ---------- eventos ---------- */
+document.addEventListener('click', e => {
+  const t = e.target.closest('button,[data-go]'); if (!t) return;
+  const d = t.dataset;
+  if (d.accept) accept(d.accept);
+  else if (d.day) { const [id, i] = d.day.split(':'); toggleDay(id, +i); }
+  else if (d.f) { filter = d.f; views.biblioteca(); }
+  else if (d.go === 'novas') { filter = 'novas'; location.hash = '#biblioteca'; }
+  else if (d.back !== undefined) { history.length > 1 ? history.back() : (location.hash = '#biblioteca'); }
+  else if (d.finish) finish(d.finish, ($('#nota')?.value || '').trim());
+  else if (d.des) { mentor.desafio = d.des; mentor.step = S.perfil?.momento ? 3 : 2; mentor.momento = S.perfil?.momento || null; views.mentor(); scrollTo(0, 0); }
+  else if (d.mom) { mentor.momento = d.mom; mentor.step = 3; views.mentor(); scrollTo(0, 0); }
+  else if (d.mstep) { mentor.step = +d.mstep; views.mentor(); }
+  else if (d.check !== undefined) loadData(true);
+  else if (d.export !== undefined) exportData();
+  else if (d.pin !== undefined) openLock(S.pinHash ? 'change' : 'create');
+  else if (d.install !== undefined && deferredInstall) { deferredInstall.prompt(); deferredInstall.userChoice.finally(() => { deferredInstall = null; route(); }); }
+});
+let reflTimer;
+document.addEventListener('input', e => {
+  if (e.target.id === 'search') { search = e.target.value; clearTimeout(reflTimer); reflTimer = setTimeout(() => { const pos = e.target.selectionStart; views.biblioteca(); const s = $('#search'); s.focus(); s.setSelectionRange(pos, pos); }, 250); }
+  else if (e.target.dataset.refl) { const id = e.target.dataset.refl, v = e.target.value; clearTimeout(reflTimer); reflTimer = setTimeout(() => { S.reflexoes[id] = {texto: v, at: today()}; if (v.trim()) logToday(); save(); }, 500); }
+});
+document.addEventListener('submit', e => {
+  if (e.target.id === 'pform') {
+    e.preventDefault();
+    S.perfil = {nome: $('#pf_nome').value.trim(), momento: $('#pf_mom').value, foco: $('#pf_foco').value, objetivo: $('#pf_obj').value.trim()};
+    save(); toast('Perfil salvo.'); location.hash = '#hoje';
+  }
+});
+document.addEventListener('change', e => {
+  if (e.target.id !== 'import' || !e.target.files[0]) return;
+  e.target.files[0].text().then(txt => {
+    const d = JSON.parse(txt);
+    if (!d || typeof d !== 'object' || !d.prog) throw new Error('formato');
+    const pin = S.pinHash; S = {...d, pinHash: pin}; S.prog ||= {}; S.reflexoes ||= {}; S.log ||= [];
+    save(); toast('Backup restaurado.'); route();
+  }).catch(() => toast('Arquivo de backup inválido.'));
+});
+function exportData() {
+  const {pinHash, ...data} = S;
+  const blob = new Blob([JSON.stringify({...data, exportadoEm: new Date().toISOString()}, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `mentor-de-valor-backup-${today()}.json`;
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+
+/* ---------- PIN ---------- */
+async function hash(s) {
+  try { const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('mv:' + s)); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join(''); }
+  catch (e) { let h = 0; for (const c of 'mv:' + s) h = (h * 31 + c.charCodeAt(0)) | 0; return 'x' + h; }
+}
+let lockMode = 'unlock', firstPin = '';
+function openLock(mode) {
+  lockMode = mode; firstPin = '';
+  const msg = {unlock:'Digite seu PIN', create:'Crie um PIN para proteger seu progresso', change:'Digite um novo PIN (ou deixe vazio para remover)'}[mode];
+  $('#lockMsg').textContent = msg; $('#lockBtn').textContent = mode === 'unlock' ? 'Entrar' : 'Continuar';
+  $('#lockSkip').hidden = mode === 'unlock'; $('#lockSkip').textContent = mode === 'create' && !S.onboarded ? 'Usar sem PIN' : 'Cancelar';
+  $('#pin').value = ''; $('#lock').classList.add('on'); setTimeout(() => $('#pin').focus(), 50);
+}
+$('#lockForm').addEventListener('submit', async e => {
+  e.preventDefault(); const v = $('#pin').value.trim();
+  if (lockMode === 'unlock') {
+    if (await hash(v) === S.pinHash) { sessionStorage.setItem('mv:ok', '1'); $('#lock').classList.remove('on'); }
+    else { $('#lockMsg').textContent = 'PIN incorreto. Tente de novo.'; $('#pin').value = ''; }
+    return;
+  }
+  if (lockMode === 'change' && !v) { delete S.pinHash; S.onboarded = true; save(); $('#lock').classList.remove('on'); toast('PIN removido.'); route(); return; }
+  if (!/^\d{4,8}$/.test(v)) { $('#lockMsg').textContent = 'Use de 4 a 8 números.'; return; }
+  if (!firstPin) { firstPin = v; $('#pin').value = ''; $('#lockMsg').textContent = 'Confirme o PIN'; return; }
+  if (v !== firstPin) { firstPin = ''; $('#pin').value = ''; $('#lockMsg').textContent = 'Os PINs não conferem. Digite de novo.'; return; }
+  S.pinHash = await hash(v); S.onboarded = true; save(); sessionStorage.setItem('mv:ok', '1');
+  $('#lock').classList.remove('on'); toast('PIN salvo.'); route();
+});
+$('#lockSkip').addEventListener('click', () => { S.onboarded = true; save(); $('#lock').classList.remove('on'); });
+
+/* ---------- dados ---------- */
+async function loadData(manual) {
+  try {
+    const [a, b] = await Promise.all([fetch('data/licoes.json', {cache: 'no-store'}), fetch('data/videos.json', {cache: 'no-store'})]);
+    if (!a.ok || !b.ok) throw new Error('http');
+    const dl = await a.json(), dv = await b.json();
+    const before = L.length;
+    L = (dl.licoes || []).sort((x, y) => (y.data || '').localeCompare(x.data || '') || (x.ordem || 0) - (y.ordem || 0));
+    V = dv.videos || []; dataDate = dl.atualizado || '';
+    if (!S.seen) { S.seen = L.map(l => l.id); save(); }
+    news = L.filter(l => !S.seen.includes(l.id)).map(l => l.id);
+    if (manual) toast(news.length ? `${news.length} ${news.length === 1 ? 'lição nova' : 'lições novas'}!` : 'Você já tem todas as lições.');
+    else if (before && L.length > before) toast('Novas lições chegaram.');
+  } catch (e) {
+    if (manual) toast('Sem conexão. Mostrando as lições salvas.');
+    if (!L.length) $('main').insertAdjacentHTML('afterbegin', '<div class="empty">Não consegui carregar as lições. Abra o app com internet ao menos uma vez.</div>');
+  }
+  route();
+}
+
+addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredInstall = e; route(); });
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+  let reloaded = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => { if (!reloaded && navigator.serviceWorker.controller) { reloaded = true; toast('App atualizado.'); } });
+}
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && L.length) loadData(false); });
+
+if (S.pinHash && !sessionStorage.getItem('mv:ok')) openLock('unlock');
+else if (!S.onboarded) openLock('create');
+route();
+loadData(false);
+}

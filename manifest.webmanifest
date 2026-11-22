@@ -1,0 +1,17 @@
+{
+  "name": "Mentor de Valor",
+  "short_name": "Mentor",
+  "description": "Ensinamentos dos vídeos do Flávio Augusto transformados em missões práticas para o dia a dia, a carreira e o seu negócio.",
+  "lang": "pt-BR",
+  "start_url": "./#hoje",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#00a862",
+  "theme_color": "#00a862",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}

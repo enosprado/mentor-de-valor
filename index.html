@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#00a862">
+<meta name="description" content="Ensinamentos dos vídeos do Flávio Augusto transformados em missões práticas.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Mentor">
+<title>Mentor de Valor</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--bg:light-dark(#f6faf8,#07130d);--card:light-dark(#ffffff,#0d1d15);--ink:light-dark(#0b0b10,#e9f5ee);--muted:light-dark(#566170,#9fb5a8);--green:#00a862;--green-ink:light-dark(#00754a,#3ddc97);--mist:light-dark(#eafaf2,#123024);--line:light-dark(#dfe7e2,#1f3a2d);--gold:#ffe796;--safe-b:env(safe-area-inset-bottom,0px);--safe-t:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;min-width:0;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:30px}h2{font-size:22px}h3{font-size:18px;font-weight:600}
+p{margin:0}
+button{font:inherit;color:inherit}
+.top{background:var(--green);color:#fff;padding:calc(18px + var(--safe-t)) 20px 22px}
+.top .hi{font-size:14px;opacity:.9}
+.top h1{margin-top:4px}
+main{max-width:760px;margin:0 auto;padding:16px 16px calc(96px + var(--safe-b))}
+.view{display:none}.view.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px}
+.card.hero{margin-top:-34px;box-shadow:0 18px 36px -24px rgba(0,60,30,.55);border:0}
+.label{font-size:13px;font-weight:600;color:var(--green-ink)}
+.muted{color:var(--muted);font-size:14px}
+.stack{display:grid;gap:10px}
+.act{background:var(--mist);border-radius:14px;padding:12px 14px}
+.act b{display:block;font-size:13px;color:var(--green-ink);margin-bottom:2px}
+.q{font-style:italic;color:var(--muted)}
+.btn{border:0;border-radius:14px;background:var(--ink);color:var(--bg);font-weight:600;font-size:15px;padding:0 18px;min-height:48px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.btn.g{background:var(--green);color:#fff}.btn.o{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.w{width:100%}
+.btn:disabled{opacity:.5}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin:4px -16px 12px;padding-inline:16px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line);background:var(--card);border-radius:99px;padding:9px 14px;font-size:14px;cursor:pointer;min-height:40px}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+input,select,textarea{font:16px Inter,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 13px;width:100%}
+textarea{resize:vertical;min-height:84px}
+:focus-visible{outline:3px solid color-mix(in srgb,var(--green) 55%,transparent);outline-offset:2px}
+label.f{display:grid;gap:6px;font-size:14px;font-weight:500}
+.list{display:grid;gap:12px}
+.li{display:grid;gap:6px;text-align:left;width:100%;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;cursor:pointer}
+.li h3{font-size:17px}
+.li .meta{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.st{font-size:12px;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--mist);color:var(--green-ink);white-space:nowrap}
+.st.done{background:var(--green);color:#fff}
+.days{display:grid;gap:8px;margin-top:6px}
+.day{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start;padding:10px 12px;border-radius:12px;border:1px solid var(--line);cursor:pointer;background:var(--card);text-align:left;width:100%}
+.day .box{width:26px;height:26px;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center;font-size:15px;color:#fff}
+.day.ok .box{background:var(--green);border-color:var(--green)}
+.day.ok .txt{color:var(--muted);text-decoration:line-through}
+.day .n{font-size:12px;font-weight:600;color:var(--green-ink);display:block}
+.progress{height:8px;background:var(--mist);border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:var(--green);transition:width .3s}
+details{border-top:1px solid var(--line);padding:12px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:8px}
+summary::after{content:"+";color:var(--green-ink);font-weight:700}
+details[open] summary::after{content:"–"}
+details p{margin-top:8px;color:var(--muted)}
+.back{background:none;border:0;color:var(--green-ink);font-weight:600;padding:8px 0;cursor:pointer;min-height:44px}
+.banner{display:flex;gap:12px;align-items:center;justify-content:space-between;background:var(--gold);color:#3b2f00;border-radius:14px;padding:12px 14px;margin-bottom:14px}
+.banner button{background:#3b2f00;color:var(--gold);border:0;border-radius:10px;padding:8px 12px;font-weight:600;cursor:pointer;min-height:40px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+.stat .n{font:700 30px/1 "Space Grotesk",sans-serif}
+.opt{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;min-height:52px}
+.opt[aria-pressed=true]{border-color:var(--green);background:var(--mist);font-weight:600}
+.opts{display:grid;gap:8px}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);padding-bottom:var(--safe-b);z-index:10}
+nav.tabs a{display:grid;justify-items:center;gap:2px;padding:9px 4px 10px;color:var(--muted);text-decoration:none;font-size:12px;font-weight:500;min-height:56px}
+nav.tabs a svg{width:24px;height:24px}
+nav.tabs a[aria-current=page]{color:var(--green-ink);font-weight:600}
+.lock{position:fixed;inset:0;background:var(--green);color:#fff;display:none;place-items:center;z-index:50;padding:24px}
+.lock.on{display:grid}
+.lock .box{width:min(340px,100%);display:grid;gap:14px;text-align:center}
+.lock input{text-align:center;font-size:26px;letter-spacing:10px;background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.5)}
+.lock input::placeholder{color:rgba(255,255,255,.6);letter-spacing:2px;font-size:16px}
+.lock .btn{background:#fff;color:#00754a}
+.lock .link{background:none;border:0;color:#fff;text-decoration:underline;cursor:pointer;opacity:.9;min-height:44px}
+.toast{position:fixed;left:50%;bottom:calc(76px + var(--safe-b));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:40;max-width:90vw}
+.toast.on{opacity:1}
+.empty{color:var(--muted);text-align:center;padding:24px;border:1px dashed var(--line);border-radius:16px}
+.vid{display:block;color:var(--ink);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line)}
+.vid:last-child{border-bottom:0}
+a{color:var(--green-ink)}
+@media(prefers-reduced-motion:no-preference){.view.on{animation:in .22s ease-out}@keyframes in{from{opacity:0;transform:translateY(6px)}}}
+@media(min-width:760px){h1{font-size:38px}.top{padding-inline:max(20px,calc(50vw - 360px))}}
+</style>
+</head>
+<body>
+<div class="lock" id="lock" role="dialog" aria-modal="true" aria-labelledby="lockT">
+  <form class="box" id="lockForm">
+    <h2 id="lockT">Mentor de Valor</h2>
+    <p id="lockMsg">Digite seu PIN</p>
+    <input id="pin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="8" autocomplete="off" placeholder="4 a 8 números" aria-label="PIN">
+    <button class="btn" id="lockBtn">Entrar</button>
+    <button class="link" type="button" id="lockSkip" hidden>Usar sem PIN</button>
+  </form>
+</div>
+
+<header class="top"><div class="hi" id="hi">Olá!</div><h1 id="title">Mentor de Valor</h1></header>
+<main>
+  <section class="view" id="v-hoje"></section>
+  <section class="view" id="v-biblioteca"></section>
+  <section class="view" id="v-licao"></section>
+  <section class="view" id="v-mentor"></section>
+  <section class="view" id="v-progresso"></section>
+  <section class="view" id="v-perfil"></section>
+</main>
+
+<nav class="tabs" aria-label="Navegação">
+  <a href="#hoje" data-tab="hoje"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/></svg>Hoje</a>
+  <a href="#mentor" data-tab="mentor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Mentor</a>
+  <a href="#biblioteca" data-tab="biblioteca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/></svg>Biblioteca</a>
+  <a href="#progresso" data-tab="progresso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V14M12 20V9M19 20V4"/></svg>Progresso</a>
+</nav>
+<div class="toast" id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
