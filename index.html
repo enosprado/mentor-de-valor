@@ -76,8 +76,8 @@ details p{margin-top:8px;color:var(--muted)}
 .opt{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;min-height:52px}
 .opt[aria-pressed=true]{border-color:var(--green);background:var(--mist);font-weight:600}
 .opts{display:grid;gap:8px}
-nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);padding-bottom:var(--safe-b);z-index:10}
-nav.tabs a{display:grid;justify-items:center;gap:2px;padding:9px 4px 10px;color:var(--muted);text-decoration:none;font-size:12px;font-weight:500;min-height:56px}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding-bottom:var(--safe-b);z-index:10}
+nav.tabs a{display:grid;justify-items:center;gap:2px;padding:9px 2px 10px;color:var(--muted);text-decoration:none;font-size:12px;font-weight:500;min-height:56px}
 nav.tabs a svg{width:24px;height:24px}
 nav.tabs a[aria-current=page]{color:var(--green-ink);font-weight:600}
 .lock{position:fixed;inset:0;background:var(--green);color:#fff;display:none;place-items:center;z-index:50;padding:24px}
@@ -116,12 +116,17 @@ a{color:var(--green-ink)}
   <section class="view" id="v-mentor"></section>
   <section class="view" id="v-progresso"></section>
   <section class="view" id="v-perfil"></section>
+  <section class="view" id="v-estudos"></section>
+  <section class="view" id="v-livro"></section>
+  <section class="view" id="v-cap"></section>
+  <section class="view" id="v-rev"></section>
 </main>
 
 <nav class="tabs" aria-label="Navegação">
   <a href="#hoje" data-tab="hoje"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/></svg>Hoje</a>
   <a href="#mentor" data-tab="mentor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Mentor</a>
   <a href="#biblioteca" data-tab="biblioteca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/></svg>Biblioteca</a>
+  <a href="#estudos" data-tab="estudos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c3-1.5 6.5-1.5 10 1 3.5-2.5 7-2.5 10-1v13c-3-1.5-6.5-1.5-10 1-3.5-2.5-7-2.5-10-1z"/><path d="M12 7v13"/></svg>Estudos</a>
   <a href="#progresso" data-tab="progresso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V14M12 20V9M19 20V4"/></svg>Progresso</a>
 </nav>
 <div class="toast" id="toast" role="status"></div>

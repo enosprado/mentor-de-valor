@@ -1,541 +1,1277 @@
 {
-  "atualizado": "2026-11-22",
-  "licoes": [
+ "atualizado": "2026-11-22",
+ "licoes": [
+  {
+   "id": "filtro-do-negocio",
+   "video": "epGQK-hgQD0",
+   "data": "2026-11-16",
+   "ordem": 1,
+   "inicio": 50,
+   "categoria": "negocio",
+   "titulo": "O filtro antes de abrir qualquer negócio",
+   "ideia": "Antes de se apaixonar pela ideia, passe-a pelo filtro: qual dor específica ela resolve, que causa a sustenta nos meses ruins, se o modelo permite margem alta, se tem recorrência (assinatura, esteira de produtos ou ecossistema) e quanto imposto o segmento carrega.",
+   "acao": "Dê nota de 0 a 10 para sua ideia ou negócio em: dor clara, causa, margem, recorrência e carga tributária. Trabalhe primeiro no critério com a menor nota.",
+   "pergunta": "Você escolheu seu negócio porque a conta fecha ou só porque gosta dele?",
+   "desafios": [
+    "comecar",
+    "precificar",
+    "decidir"
+   ],
+   "plano": [
+    "Escreva em uma frase a dor específica que seu negócio (ou ideia) resolve e para quem.",
+    "Converse com 3 possíveis clientes e pergunte quanto essa dor custa para eles hoje.",
+    "Escreva a causa por trás do negócio: por que você continuaria mesmo num mês ruim?",
+    "Calcule a margem estimada: preço menos custos e impostos. Peça ao seu contador a carga do segmento.",
+    "Desenhe como o cliente voltaria a comprar: assinatura, próximo produto ou serviço complementar.",
+    "Dê as 5 notas de 0 a 10 e identifique o critério mais fraco.",
+    "Defina uma mudança no modelo para subir a nota mais baixa e anote no diário."
+   ],
+   "faq": [
     {
-      "id": "filtro-do-negocio", "video": "epGQK-hgQD0", "data": "2026-11-16", "ordem": 1, "inicio": 50, "categoria": "negocio",
-      "titulo": "O filtro antes de abrir qualquer negócio",
-      "ideia": "Antes de se apaixonar pela ideia, passe-a pelo filtro: qual dor específica ela resolve, que causa a sustenta nos meses ruins, se o modelo permite margem alta, se tem recorrência (assinatura, esteira de produtos ou ecossistema) e quanto imposto o segmento carrega.",
-      "acao": "Dê nota de 0 a 10 para sua ideia ou negócio em: dor clara, causa, margem, recorrência e carga tributária. Trabalhe primeiro no critério com a menor nota.",
-      "pergunta": "Você escolheu seu negócio porque a conta fecha ou só porque gosta dele?",
-      "desafios": ["comecar", "precificar", "decidir"],
-      "plano": [
-        "Escreva em uma frase a dor específica que seu negócio (ou ideia) resolve e para quem.",
-        "Converse com 3 possíveis clientes e pergunte quanto essa dor custa para eles hoje.",
-        "Escreva a causa por trás do negócio: por que você continuaria mesmo num mês ruim?",
-        "Calcule a margem estimada: preço menos custos e impostos. Peça ao seu contador a carga do segmento.",
-        "Desenhe como o cliente voltaria a comprar: assinatura, próximo produto ou serviço complementar.",
-        "Dê as 5 notas de 0 a 10 e identifique o critério mais fraco.",
-        "Defina uma mudança no modelo para subir a nota mais baixa e anote no diário."
-      ],
-      "faq": [
-        {"p": "E se eu gosto muito de um negócio de margem baixa?", "r": "Gostar não paga as contas. Veja se dá para mudar o modelo dentro do mesmo mercado: serviço premium, consultoria, assinatura ou vender para empresas. Se nenhuma versão tem margem, trate como hobby, não como negócio."},
-        {"p": "Preciso de todos os critérios com nota alta?", "r": "Não. Mas dor clara e margem são inegociáveis. Recorrência e causa podem ser construídas com o tempo."},
-        {"p": "Como saber a carga tributária?", "r": "Pergunte a um contador qual regime e alíquota se aplicam à sua atividade antes de abrir. Essa conversa costuma ser rápida e evita escolher um segmento que trabalha só para pagar imposto."}
-      ],
-      "exemplos": {
-        "clt": "Antes de largar o emprego, teste a ideia como projeto paralelo e passe-a pelo filtro com vendas reais, não só com planilha.",
-        "empreender": "Compare duas ou três ideias lado a lado com as cinco notas. Abra a de maior soma, não a mais empolgante.",
-        "negocio": "Aplique o filtro em cada produto da sua linha. Corte ou reposicione o que tem margem baixa e nenhuma recorrência."
-      }
+     "p": "E se eu gosto muito de um negócio de margem baixa?",
+     "r": "Gostar não paga as contas. Veja se dá para mudar o modelo dentro do mesmo mercado: serviço premium, consultoria, assinatura ou vender para empresas. Se nenhuma versão tem margem, trate como hobby, não como negócio."
     },
     {
-      "id": "margem-recompensa", "video": "epGQK-hgQD0", "data": "2026-11-16", "ordem": 2, "inicio": 150, "categoria": "negocio",
-      "titulo": "Margem é a recompensa do empresário",
-      "ideia": "O trabalho para ter 5% de margem é praticamente o mesmo que para ter 50%. O que muda é o modelo escolhido. Ele evita segmentos de margem estruturalmente baixa e faz o planejamento tributário antes de escolher onde atuar.",
-      "acao": "Calcule a margem real do seu negócio (ou da ideia): preço menos todos os custos e impostos. Liste 2 mudanças de modelo, preço ou mix que a aumentariam.",
-      "pergunta": "Seu esforço está sendo recompensado ou você trabalha só para pagar custos e impostos?",
-      "desafios": ["precificar", "dinheiro"],
-      "plano": [
-        "Separe o faturamento do último mês (ou estime o de um mês típico).",
-        "Liste todos os custos: produto, pessoas, aluguel, ferramentas, taxas e impostos.",
-        "Calcule a margem líquida em porcentagem.",
-        "Calcule a margem de cada produto ou serviço separadamente.",
-        "Identifique o item que mais vende e menos lucra.",
-        "Escreva 2 mudanças: subir preço, reduzir custo, mudar o mix ou criar uma versão premium.",
-        "Coloque uma das mudanças em prática e anote o resultado no diário."
-      ],
-      "faq": [
-        {"p": "Qual margem é boa?", "r": "Depende do setor, mas o ponto da lição é comparar modelos: entre dois caminhos com esforço parecido, escolha o de margem maior."},
-        {"p": "Se eu subir preço, perco clientes?", "r": "Pode perder alguns. Faça a conta: muitas vezes vender menos com margem maior dá mais lucro e menos trabalho. Teste com clientes novos primeiro."}
-      ],
-      "exemplos": {
-        "clt": "Aplique em você: quanto sobra do seu salário depois dos custos de trabalhar (transporte, tempo, alimentação)? Isso é a sua margem.",
-        "empreender": "Antes de abrir, simule a margem de três modelos diferentes para a mesma ideia.",
-        "negocio": "Faça a margem por produto. É comum descobrir que o item 'carro-chefe' é o que menos dá lucro."
-      }
+     "p": "Preciso de todos os critérios com nota alta?",
+     "r": "Não. Mas dor clara e margem são inegociáveis. Recorrência e causa podem ser construídas com o tempo."
     },
     {
-      "id": "era-do-high-ticket", "video": "epGQK-hgQD0", "data": "2026-11-16", "ordem": 3, "inicio": 420, "categoria": "negocio",
-      "titulo": "A era do high ticket",
-      "ideia": "O custo para conquistar cada cliente (CAC) só sobe, porque anúncio funciona como leilão. Produto barato depende de volume, e volume está cada vez mais caro. Ele compara duas empresas com a mesma receita: uma com 700 mil clientes e outra com 7 mil, graças ao ticket maior.",
-      "acao": "Desenhe uma versão premium do que você vende, com mais resultado, acompanhamento ou acesso, por pelo menos 5 vezes o preço atual. Ofereça a 3 clientes este mês.",
-      "pergunta": "Que versão do seu produto entregaria tanto resultado que o preço viraria detalhe?",
-      "desafios": ["precificar", "vender"],
-      "plano": [
-        "Descubra quanto custa hoje conquistar um cliente (anúncios, tempo, comissões divididos por vendas).",
-        "Liste o que seus melhores clientes mais valorizam no seu trabalho.",
-        "Desenhe a versão premium: mais resultado, acompanhamento próximo, acesso ou exclusividade.",
-        "Defina o preço premium como pelo menos 5 vezes o atual e escreva a promessa de resultado.",
-        "Escolha 3 clientes atuais com maior potencial.",
-        "Apresente a oferta premium aos 3.",
-        "Registre as objeções e ajuste a oferta."
-      ],
-      "faq": [
-        {"p": "Meu público não pode pagar caro.", "r": "Talvez seu público atual não, mas existe um público que pode. High ticket muitas vezes significa mudar para quem você vende, como empresas em vez de pessoas físicas."},
-        {"p": "Vale abandonar o produto barato?", "r": "Não precisa. O barato pode ser a porta de entrada e o premium o destino. O erro é depender só de volume barato com CAC subindo."}
-      ],
-      "exemplos": {
-        "clt": "Na carreira, high ticket é se tornar o profissional que resolve problemas caros. Busque projetos ligados a faturamento ou economia grande.",
-        "empreender": "Comece com poucos clientes pagando bem em vez de muitos pagando pouco: valida mais rápido e exige menos marketing.",
-        "negocio": "Crie um nível VIP da sua oferta e mire os 10% de clientes que mais compram."
-      }
-    },
-    {
-      "id": "preco-pelo-roi", "video": "epGQK-hgQD0", "data": "2026-11-16", "ordem": 4, "inicio": 760, "categoria": "carreira",
-      "titulo": "Cobre pelo retorno, não pelo concorrente",
-      "ideia": "Para ele, a forma certa de precificar é pelo ROI: se você gera R$ 1 milhão de lucro para o cliente, cobrar R$ 200 mil não é caro. Mas é preciso saber o valor que você gera e ser capaz de comunicá-lo.",
-      "acao": "Escreva, em reais, o resultado que seu trabalho gera para um cliente típico (economia, lucro ou tempo). Reescreva sua apresentação de vendas começando por esse número.",
-      "pergunta": "Você sabe dizer, em reais, quanto vale o resultado que entrega?",
-      "desafios": ["precificar", "vender"],
-      "plano": [
-        "Escolha um cliente típico (ou seu empregador) e liste os resultados que você gerou para ele.",
-        "Converta cada resultado em reais: mais vendas, custo evitado, horas economizadas.",
-        "Some o valor anual gerado.",
-        "Compare com o que você cobra (ou ganha). Qual a proporção?",
-        "Reescreva sua apresentação começando pelo resultado em reais.",
-        "Use a nova apresentação com um cliente ou numa conversa sobre aumento.",
-        "Anote a reação e ajuste o discurso."
-      ],
-      "faq": [
-        {"p": "Não sei medir o resultado que gero.", "r": "Comece perguntando aos clientes o que mudou depois do seu trabalho. Estimativas conservadoras já servem; o importante é sair do 'cobro por hora'."},
-        {"p": "E se o concorrente cobra muito menos?", "r": "Então mostre por que seu resultado vale mais. Se o resultado é igual, preço é a única diferença, e aí você precisa melhorar a entrega."}
-      ],
-      "exemplos": {
-        "clt": "Leve para a conversa de aumento quanto dinheiro seu trabalho gerou ou economizou para a empresa no ano.",
-        "empreender": "Na primeira proposta, comece pelo resultado esperado em reais e só depois apresente o preço.",
-        "negocio": "Revise a tabela de preços: produtos que geram retorno alto para o cliente provavelmente estão baratos."
-      }
-    },
-    {
-      "id": "especialista-empresario", "video": "epGQK-hgQD0", "data": "2026-11-16", "ordem": 5, "inicio": 850, "categoria": "carreira",
-      "titulo": "De especialista a empresário: troque horas por programa",
-      "ideia": "Médicos, dentistas, advogados e nutricionistas costumam vender o próprio tempo. A virada é criar um programa com começo, meio e fim, equipe em volta e resultado definido. As competências são: produto e modelo, vendas, atendimento para reter, liderança e gestão financeira.",
-      "acao": "Transforme seu serviço avulso em um pacote de 3 a 6 meses: defina o resultado prometido, as etapas e o que cada profissional faz. Dê um preço a ele com base no resultado.",
-      "pergunta": "Se você parasse de trabalhar um mês, sua renda pararia junto?",
-      "desafios": ["comecar", "precificar", "dinheiro"],
-      "plano": [
-        "Escreva o resultado final que seus melhores clientes buscam.",
-        "Divida o caminho até esse resultado em 4 a 6 etapas.",
-        "Defina a duração do programa (3 a 6 meses) e o que acontece em cada etapa.",
-        "Liste quem mais poderia ajudar na entrega (outro profissional, assistente, material gravado).",
-        "Dê um preço ao programa com base no resultado, não nas horas.",
-        "Apresente o programa a 3 clientes atuais ou antigos.",
-        "Avalie em qual das 5 competências (produto, vendas, retenção, liderança, finanças) você é mais fraco e escolha um estudo."
-      ],
-      "faq": [
-        {"p": "Meu conselho profissional permite isso?", "r": "Cada profissão tem regras próprias de publicidade e cobrança. Confirme com seu conselho de classe antes de divulgar o programa."},
-        {"p": "E se o cliente não quiser pagar adiantado?", "r": "Ofereça parcelamento ao longo do programa. O importante é vender o resultado completo, não sessões soltas."}
-      ],
-      "exemplos": {
-        "clt": "Mesmo empregado, monte um 'programa' de algo que você domina e ofereça como freelance aos fins de semana.",
-        "empreender": "Se você tem uma especialidade, seu primeiro negócio pode ser um programa com 5 clientes, sem precisar de loja ou sócio.",
-        "negocio": "Transforme o serviço mais vendido em um pacote com etapas e acompanhamento, e treine alguém para entregar parte dele."
-      }
-    },
-    {
-      "id": "audiencia-produto", "video": "epGQK-hgQD0", "data": "2026-11-16", "ordem": 6, "inicio": 1010, "categoria": "negocio",
-      "titulo": "Audiência só vale com produto próprio",
-      "ideia": "Ele começou na internet em 2010 já como empresário, e com o tempo comunicação e negócio passaram a se alimentar. Quem vive só de publicidade depende de outra empresa. Quem tem produto próprio usa a atenção para vender algo que controla, mesmo com poucos seguidores fiéis.",
-      "acao": "Publique 3 conteúdos curtos esta semana ensinando algo do seu ofício. Termine cada um com um convite claro para o seu produto ou serviço.",
-      "pergunta": "Quem já confia em você hoje e ainda não recebeu uma oferta sua?",
-      "desafios": ["vender", "comecar"],
-      "plano": [
-        "Liste as 10 perguntas que seus clientes mais fazem.",
-        "Escolha 3 e escreva uma resposta curta para cada (texto ou roteiro de vídeo de 1 minuto).",
-        "Defina o convite do final: o que a pessoa deve fazer para comprar ou falar com você.",
-        "Publique o primeiro conteúdo.",
-        "Publique o segundo e responda todos os comentários.",
-        "Publique o terceiro e mande mensagem para quem interagiu.",
-        "Conte quantas conversas de venda surgiram e registre no diário."
-      ],
-      "faq": [
-        {"p": "Tenho vergonha de aparecer.", "r": "Comece com texto ou com vídeos mostrando só o trabalho. O que importa é ensinar algo útil e fazer o convite."},
-        {"p": "Tenho poucos seguidores, vale a pena?", "r": "Sim. A lição é justamente essa: poucos seguidores fiéis com um produto próprio valem mais que muitos sem nada para vender."}
-      ],
-      "exemplos": {
-        "clt": "Compartilhe no LinkedIn o que você aprende no trabalho. Isso constrói reputação e atrai oportunidades.",
-        "empreender": "Comece a produzir conteúdo antes de abrir: você já chega ao lançamento com gente interessada.",
-        "negocio": "Transforme as dúvidas que sua equipe responde todo dia em conteúdo com chamada para o seu produto."
-      }
-    },
-    {
-      "id": "empresa-enxuta-ia", "video": "epGQK-hgQD0", "data": "2026-11-16", "ordem": 7, "inicio": 1110, "categoria": "carreira",
-      "titulo": "Use IA sem ansiedade",
-      "ideia": "Numa das empresas dele, a área de pós-venda deve passar de 200 para cerca de 20 pessoas com IA. O conselho é não deixar a incerteza virar ansiedade: estudar o tema, agir e lembrar que nenhuma máquina ocupa o lugar do afeto e da relação com as pessoas.",
-      "acao": "Escolha uma tarefa repetitiva do seu dia (proposta, resposta a cliente, organização) e passe-a para uma ferramenta de IA esta semana. Anote quanto tempo você ganhou.",
-      "pergunta": "Que parte do seu trabalho uma IA já faria hoje e o que só você pode fazer?",
-      "desafios": ["ia", "foco"],
-      "plano": [
-        "Anote durante um dia todas as tarefas que você repete.",
-        "Marque as que são escrita, resumo, organização ou respostas padrão.",
-        "Escolha uma e teste com uma ferramenta de IA.",
-        "Ajuste as instruções até o resultado ficar bom.",
-        "Use a IA nessa tarefa pelo resto da semana e cronometre.",
-        "Liste o que só você pode fazer (relacionamento, decisão, criatividade) e dedique o tempo ganho a isso.",
-        "Registre quanto tempo economizou no diário."
-      ],
-      "faq": [
-        {"p": "A IA vai tirar meu emprego?", "r": "Algumas funções vão encolher, como o próprio exemplo mostra. A melhor defesa é aprender a usar e se deslocar para o que exige julgamento e relação humana."},
-        {"p": "Posso colocar dados de clientes na IA?", "r": "Cuidado com dados pessoais e sigilosos. Verifique a política da ferramenta e as regras da sua empresa antes."}
-      ],
-      "exemplos": {
-        "clt": "Seja quem leva IA para a equipe: automatize um relatório chato e mostre ao gestor.",
-        "empreender": "Use IA para fazer com uma pessoa o que antes exigia três: propostas, posts e atendimento inicial.",
-        "negocio": "Mapeie a área com mais tarefas repetitivas e faça um piloto de IA por 30 dias."
-      }
-    },
-    {
-      "id": "grato-nao-conformado", "video": "U_KDK-CHFio", "data": "2026-10-21", "ordem": 1, "inicio": 400, "categoria": "vida",
-      "titulo": "Grato sempre, conformado jamais",
-      "ideia": "Gratidão e conformismo são coisas diferentes. Conformar-se é ganhar a forma do lugar onde você está, e quem ganha essa forma não sai dali. Dá para agradecer pelo que tem e, ao mesmo tempo, recusar-se a ficar.",
-      "acao": "Escreva uma situação da sua vida em que você está 'de passagem'. Ao lado, anote um passo que você dá ainda esta semana para sair dela.",
-      "pergunta": "Em que área da sua vida você tem chamado de gratidão o que na verdade é conformismo?",
-      "desafios": ["mentalidade", "comecar"],
-      "plano": [
-        "Escreva 3 coisas pelas quais você é grato hoje.",
-        "Escreva 3 situações em que você sente que 'não pertence' (trabalho, renda, moradia, hábitos).",
-        "Escolha a situação que mais incomoda.",
-        "Descreva como seria estar fora dela daqui a 12 meses.",
-        "Liste 5 passos possíveis para chegar lá.",
-        "Execute o primeiro passo.",
-        "Registre no diário como se sentiu agindo em vez de só aceitar."
-      ],
-      "faq": [
-        {"p": "Querer mais não é ingratidão?", "r": "Não. A lição separa as duas coisas: você pode ser grato e não aceitar ficar no mesmo lugar."},
-        {"p": "E se eu não souber para onde ir?", "r": "Comece pelo que você não quer mais. Saber do que está de passagem já orienta os primeiros passos."}
-      ],
-      "exemplos": {
-        "clt": "Agradeça o emprego e, ao mesmo tempo, monte um plano para o próximo nível: promoção, novo emprego ou renda extra.",
-        "empreender": "Use a insatisfação com a situação atual como combustível para tirar a ideia do papel.",
-        "negocio": "Mesmo com o negócio indo bem, pergunte onde você se acomodou: produto, equipe ou crescimento."
-      }
-    },
-    {
-      "id": "sala-de-trofeus", "video": "U_KDK-CHFio", "data": "2026-10-21", "ordem": 2, "inicio": 920, "categoria": "vida",
-      "titulo": "Monte sua sala de troféus",
-      "ideia": "A confiança do Flávio nasceu de passar, aos 15 anos e na terceira tentativa, numa prova disputadíssima. O ponto não é só ter vencido, é ter se apropriado da vitória: diante de cada desafio novo, ele pensa que aquilo é mais fácil do que algo que já superou.",
-      "acao": "Liste as 3 conquistas mais difíceis da sua vida, mesmo as pequenas. Guarde a lista no celular e leia antes da próxima situação que te dá medo.",
-      "pergunta": "Qual vitória sua você está subestimando e que já prova do que você é capaz?",
-      "desafios": ["mentalidade", "decidir"],
-      "plano": [
-        "Relembre 10 momentos em que você superou algo difícil, de qualquer época.",
-        "Escolha os 3 mais marcantes.",
-        "Para cada um, escreva o que você fez para conseguir.",
-        "Escreva o que cada conquista prova sobre você.",
-        "Identifique um desafio atual que te dá medo.",
-        "Compare: esse desafio é mais difícil do que as conquistas da lista?",
-        "Dê o primeiro passo no desafio e registre no diário."
-      ],
-      "faq": [
-        {"p": "Minhas conquistas são pequenas.", "r": "A lição mostra justamente isso: passar numa prova aos 15 anos parece pequeno visto de longe, mas foi decisivo. Dê o valor certo ao que você já fez."}
-      ],
-      "exemplos": {
-        "clt": "Antes de uma entrevista ou reunião difícil, leia sua lista de troféus.",
-        "empreender": "Lembre de algo difícil que você já fez quando o medo de abrir o negócio aparecer.",
-        "negocio": "Faça a sala de troféus da empresa com a equipe: crises superadas e metas batidas."
-      }
-    },
-    {
-      "id": "pior-que-pode-acontecer", "video": "U_KDK-CHFio", "data": "2026-10-21", "ordem": 3, "inicio": 1760, "categoria": "negocio",
-      "titulo": "A pergunta: qual é o pior que pode acontecer?",
-      "ideia": "Flávio e a esposa usam a mesma pergunta em toda decisão importante, de mudar de país aos 21 anos até comprar o Orlando City. Se o pior cenário é suportável e não ameaça o que mais importa, a decisão fica leve.",
-      "acao": "Pegue uma decisão que você está adiando. Escreva o pior cenário realista e o que faria se ele acontecesse. Se for suportável, decida em até 48 horas.",
-      "pergunta": "Qual decisão você adia por medo de um 'pior cenário' que nunca colocou no papel?",
-      "desafios": ["decidir", "mentalidade"],
-      "plano": [
-        "Liste as decisões que você está adiando.",
-        "Escolha a mais importante.",
-        "Escreva o pior cenário realista se der errado.",
-        "Escreva o que você faria para se recuperar desse cenário.",
-        "Verifique se o pior cenário ameaça o que mais importa para você (família, saúde, valores).",
-        "Converse com alguém de confiança sobre a análise.",
-        "Tome a decisão e registre no diário."
-      ],
-      "faq": [
-        {"p": "E se o pior cenário for realmente grave?", "r": "Então a pergunta cumpriu seu papel: mostrou que é preciso reduzir o risco antes, testando em menor escala ou guardando uma reserva."}
-      ],
-      "exemplos": {
-        "clt": "Pedir demissão para empreender: o pior caso é voltar ao mercado com uma experiência nova. Calcule quantos meses de reserva você precisa.",
-        "empreender": "Investir no primeiro estoque: o pior caso é perder esse valor. Ele é suportável?",
-        "negocio": "Contratar alguém estratégico: o pior caso é um custo de alguns meses. Compare com o custo de não crescer."
-      }
-    },
-    {
-      "id": "dinheiro-no-tapete", "video": "U_KDK-CHFio", "data": "2026-10-21", "ordem": 4, "inicio": 2020, "categoria": "vida",
-      "titulo": "Ponha as coisas no devido lugar",
-      "ideia": "Coragem para arriscar vem de proteger o que tem valor de verdade. Para ele, família vem muito acima do dinheiro: dinheiro é bom, mas deve ser servo e não senhor. Quem inverte a ordem fica frágil quando perde dinheiro.",
-      "acao": "Escreva, em ordem, as 5 coisas mais importantes da sua vida. Combine com quem mora com você uma regra do tipo 'nunca brigamos por algo material'.",
-      "pergunta": "Se você perdesse dinheiro amanhã, o que de mais importante continuaria intacto?",
-      "desafios": ["mentalidade", "dinheiro"],
-      "plano": [
-        "Liste as 5 coisas mais importantes da sua vida, em ordem.",
-        "Compare com onde foram seu tempo e sua energia na última semana.",
-        "Identifique uma inversão (ex.: trabalho ocupando o lugar da família).",
-        "Converse com quem mora com você sobre a lista.",
-        "Combinem uma regra de convivência sobre dinheiro e coisas materiais.",
-        "Dedique um tempo exclusivo à prioridade número 1.",
-        "Registre no diário o que mudou."
-      ],
-      "faq": [
-        {"p": "Isso não é desculpa para não ganhar dinheiro?", "r": "Não. Ele defende ganhar muito dinheiro. O ponto é a ordem: dinheiro no lugar certo deixa você mais corajoso, não menos ambicioso."}
-      ],
-      "exemplos": {
-        "clt": "Antes de aceitar uma promoção que exige muito mais horas, confira se ela respeita sua lista de prioridades.",
-        "empreender": "Defina com a família o que não pode ser arriscado (ex.: reserva de emergência) antes de investir.",
-        "negocio": "Ajude líderes da equipe a equilibrar ambição e prioridades. Gente equilibrada decide melhor."
-      }
-    },
-    {
-      "id": "olhe-o-mercado", "video": "U_KDK-CHFio", "data": "2026-10-21", "ordem": 5, "inicio": 2390, "categoria": "negocio",
-      "titulo": "Olhe o tamanho do mercado, não o barulho",
-      "ideia": "Apesar de burocracia e impostos, ele vê o Brasil como um dos maiores mercados consumidores do mundo, com gente querendo crescer e pouca concorrência em produtos de qualidade.",
-      "acao": "Liste 3 produtos ou serviços que, na sua cidade ou nicho, são entregues com má qualidade. Escolha um e escreva como você faria melhor.",
-      "pergunta": "Que necessidade mal atendida você vê todo dia e ignora?",
-      "desafios": ["comecar"],
-      "plano": [
-        "Anote durante 2 dias toda vez que você ou alguém reclamar de um serviço.",
-        "Pergunte a 5 pessoas qual serviço da cidade elas acham ruim.",
-        "Liste os 3 problemas mais citados.",
-        "Escolha um e pesquise quem atende hoje e quanto cobra.",
-        "Escreva como seria uma versão de qualidade.",
-        "Estime quantas pessoas pagariam por ela.",
-        "Registre no diário se a ideia passa pelo filtro do negócio."
-      ],
-      "faq": [
-        {"p": "Já existe muita gente fazendo isso.", "r": "Pode existir muita gente, mas pouca fazendo com qualidade. É aí que ele vê espaço."}
-      ],
-      "exemplos": {
-        "clt": "Observe os problemas mal resolvidos dentro da sua empresa: resolvê-los é uma forma de crescer na carreira.",
-        "empreender": "Procure oportunidades no que as pessoas reclamam, não no que está na moda.",
-        "negocio": "Pergunte aos clientes o que eles compram de outros fornecedores e de que reclamam. Pode ser sua próxima linha."
-      }
-    },
-    {
-      "id": "so-o-que-controla", "video": "U_KDK-CHFio", "data": "2026-10-21", "ordem": 6, "inicio": 3300, "categoria": "carreira",
-      "titulo": "Gaste energia só com o que você controla",
-      "ideia": "Ele não perde sono com quem será eleito ou com a macroeconomia. Tira essas variáveis da equação, põe toda a energia nas que controla e evita ficar refém de qualquer coisa: emprego, cidade ou governo.",
-      "acao": "Faça duas colunas: 'controlo' e 'não controlo', com suas preocupações atuais. Troque 30 minutos diários de notícias por uma ação da primeira coluna.",
-      "pergunta": "De que você está refém hoje e o que precisaria para ter uma alternativa?",
-      "desafios": ["foco", "mentalidade"],
-      "plano": [
-        "Liste todas as suas preocupações atuais.",
-        "Separe em 'controlo' e 'não controlo'.",
-        "Para cada item da segunda coluna, escreva: 'aceito e sigo'.",
-        "Escolha 3 itens da primeira coluna para agir.",
-        "Corte 30 minutos de notícias ou redes por dia.",
-        "Use esse tempo numa ação concreta da primeira coluna.",
-        "Liste de que você é refém hoje e um passo para criar uma alternativa."
-      ],
-      "faq": [
-        {"p": "Ignorar o noticiário não é alienação?", "r": "Não é ignorar tudo, é não deixar o que você não controla ocupar a energia do que você controla. Informe-se em pouco tempo e volte à ação."}
-      ],
-      "exemplos": {
-        "clt": "Em vez de se preocupar com demissões, invista em habilidades e numa reserva que lhe deem alternativa.",
-        "empreender": "Não espere o cenário ideal para começar. Comece pelo que depende de você: produto e vendas.",
-        "negocio": "Em crise, foque em margem, caixa e clientes, que são variáveis que você controla."
-      }
-    },
-    {
-      "id": "diagnostico-do-ano", "video": "U_KDK-CHFio", "data": "2026-10-21", "ordem": 7, "inicio": 4080, "categoria": "carreira",
-      "titulo": "Para o ano ser novo, você precisa ser novo",
-      "ideia": "Se o resultado não veio, há três diagnósticos possíveis: faltou intensidade ou senso de urgência; você trabalhou muito, mas no caminho errado; ou está tudo certo e só falta tempo de maturação. Cada um pede um remédio diferente.",
-      "acao": "Escolha sua meta principal de 2026 e responda honestamente qual dos três diagnósticos se aplica. Defina uma mudança concreta (estratégia, companhia ou caminho) para 2027.",
-      "pergunta": "Você não teve resultado por falta de esforço, por esforço no lugar errado ou por pouco tempo?",
-      "desafios": ["foco", "decidir"],
-      "plano": [
-        "Escreva sua meta principal deste ano e o resultado real.",
-        "Avalie a intensidade: quantas horas e ações você realmente dedicou?",
-        "Avalie o caminho: a estratégia era a certa? Alguém com resultado faria igual?",
-        "Avalie o tempo: é cedo demais para colher?",
-        "Escolha o diagnóstico principal.",
-        "Defina uma mudança: de estratégia, de companhia ou de caminho.",
-        "Escreva a meta do próximo ano já com essa mudança."
-      ],
-      "faq": [
-        {"p": "Como saber se é falta de tempo e não caminho errado?", "r": "Veja se há sinais de progresso: clientes voltando, indicações, números subindo devagar. Sem nenhum sinal, provavelmente é o caminho."}
-      ],
-      "exemplos": {
-        "clt": "Não foi promovido? Veja se faltou entrega, se você estava na área errada ou se só falta tempo.",
-        "empreender": "Se a ideia não saiu do papel, quase sempre o diagnóstico é intensidade.",
-        "negocio": "Faturamento estagnado com equipe trabalhando muito costuma ser caminho errado: reveja modelo e posicionamento."
-      }
-    },
-    {
-      "id": "teste-da-urgencia", "video": "U_KDK-CHFio", "data": "2026-10-21", "ordem": 8, "inicio": 4220, "categoria": "vida",
-      "titulo": "O teste do senso de urgência",
-      "ideia": "Para saber se você tentou de verdade, imagine que a vida de quem você mais ama dependesse daquilo. Se você teria feito diferente, o problema foi urgência, não capacidade.",
-      "acao": "Pense numa meta que você 'tentou, mas não conseguiu'. Responda: com a vida de alguém em jogo, o que eu faria amanhã? Faça essa primeira ação amanhã.",
-      "pergunta": "O que você faria diferente se não pudesse falhar?",
-      "desafios": ["foco", "mentalidade"],
-      "plano": [
-        "Escolha uma meta que você diz ter tentado.",
-        "Liste o que você realmente fez por ela.",
-        "Faça o teste: com algo muito importante em jogo, o que faria diferente?",
-        "Liste essas ações.",
-        "Escolha a primeira e faça amanhã.",
-        "Repita uma ação por dia até o fim da semana.",
-        "Registre no diário a diferença de resultado."
-      ],
-      "faq": [
-        {"p": "Viver com urgência não causa estresse?", "r": "Urgência é sobre prioridade e intensidade no que importa, não sobre ansiedade. Use o teste para metas específicas, não para tudo."}
-      ],
-      "exemplos": {
-        "clt": "Aquele curso que você nunca termina: com urgência real, você reservaria 1 hora por dia.",
-        "empreender": "Com urgência, você faria 10 ofertas esta semana em vez de esperar o site ficar pronto.",
-        "negocio": "Aplique o teste à meta de vendas do trimestre com a equipe."
-      }
-    },
-    {
-      "id": "estabilidade-nao-existe", "video": "Z4e9O0f2IY0", "data": "2026-04-13", "ordem": 1, "inicio": 270, "categoria": "vida",
-      "titulo": "Estabilidade não existe",
-      "ideia": "Expulso da Marinha aos 17, ele descobriu na pele que a vida garantida era ilusão. Guerras, pandemias e demissões lembram que não há segurança total. Em vez de acreditar que está seguro, ele cuida das coisas sabendo que acabam se não forem cuidadas, como um jardim ou um casamento.",
-      "acao": "Escolha uma área que você trata como 'garantida' (emprego, relação, saúde, principal cliente) e defina um cuidado semanal fixo para ela, com dia e horário.",
-      "pergunta": "Em que parte da sua vida você parou de cuidar porque achou que estava garantida?",
-      "desafios": ["mentalidade", "dinheiro"],
-      "plano": [
-        "Liste o que você considera 'garantido' na sua vida.",
-        "Para cada item, pergunte: e se acabasse amanhã?",
-        "Escolha o item mais importante e mais descuidado.",
-        "Defina um cuidado semanal com dia e horário.",
-        "Faça o primeiro cuidado esta semana.",
-        "Pense numa fonte de renda ou alternativa que reduziria sua dependência de um único pilar.",
-        "Registre no diário."
-      ],
-      "faq": [
-        {"p": "Isso não gera ansiedade?", "r": "A ideia é o contrário: aceitar que não há garantia leva você a cuidar e a criar alternativas, o que traz mais tranquilidade do que fingir segurança."}
-      ],
-      "exemplos": {
-        "clt": "Seu emprego não é garantido: mantenha o currículo, a rede de contatos e uma reserva sempre em dia.",
-        "empreender": "Não espere estabilidade para começar. Ela não virá de nenhum lado.",
-        "negocio": "Depende de um cliente grande ou de um canal só? Diversifique antes de precisar."
-      }
-    },
-    {
-      "id": "fase-da-vida", "video": "Z4e9O0f2IY0", "data": "2026-04-13", "ordem": 2, "inicio": 1620, "categoria": "negocio",
-      "titulo": "Leia a fase da sua vida antes de imobilizar",
-      "ideia": "Na fase de 'estourar', ele defende pôr tempo, dinheiro e foco no que produz mais dinheiro, mantendo mobilidade, em vez de prender capital num imóvel. Ter casa não é ruim, depende do momento. Ele mesmo só constrói onde pretende ficar pelo menos 3 anos.",
-      "acao": "Antes do próximo compromisso grande (financiamento, reforma, carro), responda: isso ainda fará sentido daqui a 3 anos? E se esse dinheiro fosse para o meu negócio ou carreira, quanto renderia?",
-      "pergunta": "Você está na fase de construir patrimônio fixo ou na fase de romper?",
-      "desafios": ["dinheiro", "decidir"],
-      "plano": [
-        "Liste os compromissos financeiros grandes que você tem ou planeja.",
-        "Escreva onde quer estar (cidade, trabalho, negócio) daqui a 3 anos.",
-        "Para cada compromisso, pergunte se combina com esse plano.",
-        "Estime quanto esse dinheiro renderia investido no seu negócio ou formação.",
-        "Defina se você está na fase de romper ou de consolidar.",
-        "Ajuste um compromisso de acordo com a fase.",
-        "Registre a decisão no diário."
-      ],
-      "faq": [
-        {"p": "Então nunca devo comprar casa?", "r": "Não é isso. Ele tem várias casas. O ponto é o momento: quando você ainda está tentando 'acontecer', mobilidade e capital costumam valer mais."},
-        {"p": "Isso é recomendação de investimento?", "r": "Não. É uma forma de pensar a decisão. Para escolhas financeiras grandes, converse com um profissional que conheça sua situação."}
-      ],
-      "exemplos": {
-        "clt": "Antes de um financiamento de 30 anos, pense se ele limita mudar de cidade por uma oportunidade.",
-        "empreender": "No início, prefira investir no negócio a trocar de carro.",
-        "negocio": "Avalie se vale imobilizar caixa em imóvel próprio ou manter o dinheiro girando no crescimento."
-      }
-    },
-    {
-      "id": "conselho-que-contraria", "video": "Z4e9O0f2IY0", "data": "2026-04-13", "ordem": 3, "inicio": 1850, "categoria": "carreira",
-      "titulo": "Entenda o porquê do conselho que te contraria",
-      "ideia": "Quando recebe um conselho que vai contra o que quer, ele não descarta nem obedece no automático: procura entender o raciocínio por trás. Foi assim que o apresentador desistiu de uma casa que, anos depois, não faria mais sentido.",
-      "acao": "Lembre o último conselho que te incomodou. Pergunte a quem deu: 'Qual é o raciocínio por trás disso?' Anote o que muda na sua decisão.",
-      "pergunta": "Qual conselho você rejeitou mais por orgulho do que por análise?",
-      "desafios": ["decidir", "mentalidade"],
-      "plano": [
-        "Liste 3 conselhos que você recebeu e não gostou.",
-        "Escolha o que vem de alguém com resultado no assunto.",
-        "Escreva o que você acha que motivou o conselho.",
-        "Pergunte diretamente à pessoa o raciocínio dela.",
-        "Compare com o seu raciocínio.",
-        "Decida: seguir, adaptar ou recusar, com motivo escrito.",
-        "Registre no diário."
-      ],
-      "faq": [
-        {"p": "Devo seguir todo conselho de quem tem sucesso?", "r": "Não. A lição é entender o porquê antes de decidir. Às vezes o contexto da pessoa é diferente do seu."}
-      ],
-      "exemplos": {
-        "clt": "Feedback duro do gestor: em vez de se defender, pergunte o que ele viu para chegar a essa conclusão.",
-        "empreender": "Quando alguém disser que sua ideia não vai dar certo, peça os motivos. Eles são informação gratuita.",
-        "negocio": "Crie o hábito de perguntar à equipe o porquê das discordâncias antes de decidir."
-      }
-    },
-    {
-      "id": "ganhe-mais", "video": "PBqV4-R9qjA", "data": "2026-01-07", "ordem": 1, "inicio": 0, "categoria": "vida",
-      "titulo": "Você não enriquece cortando o cafezinho",
-      "ideia": "Para ele, quem enriquece produz mais dinheiro: ganha mais, gasta menos do que ganha e toma boas decisões, como não se aventurar em investimentos que não entende. E ganhar mais passa por vender, seja um produto, seja você mesmo para um emprego melhor.",
-      "acao": "Liste 3 formas concretas de aumentar sua renda nos próximos 90 dias (aumento, cliente novo, serviço extra). Escolha uma e dê o primeiro passo em 7 dias.",
-      "pergunta": "Você gasta mais energia cortando despesas ou aumentando o que ganha?",
-      "desafios": ["dinheiro", "vender"],
-      "plano": [
-        "Anote sua renda atual e quanto sobra por mês.",
-        "Liste tudo que você sabe fazer e alguém pagaria.",
-        "Escreva 3 formas de aumentar a renda em 90 dias.",
-        "Escolha a mais rápida de testar.",
-        "Defina a primeira ação e faça.",
-        "Mantenha os gastos abaixo do que ganha, sem se aventurar em investimentos que não entende.",
-        "Registre no diário quanto entrou a mais."
-      ],
-      "faq": [
-        {"p": "Economizar não ajuda?", "r": "Ajuda e é parte da regra (gastar menos do que ganha). O ponto é que só economizar não leva longe; o salto vem de aumentar a renda."}
-      ],
-      "exemplos": {
-        "clt": "Prepare uma conversa de aumento ou procure uma vaga que pague mais: isso também é vender.",
-        "empreender": "Comece vendendo um serviço simples antes de montar a empresa completa.",
-        "negocio": "Em vez de só cortar custos, crie uma oferta nova para quem já é cliente."
-      }
-    },
-    {
-      "id": "vendas-como-arma", "video": "PBqV4-R9qjA", "data": "2026-01-07", "ordem": 2, "inicio": 560, "categoria": "carreira",
-      "titulo": "Vendas é ferramenta de liberdade",
-      "ideia": "Aos 23 anos ele comprou um apartamento que não cabia no bolso porque sabia que conseguiria gerar a receita vendendo. A ousadia só foi responsável porque ele tinha essa habilidade. Para ele, vender não é só uma profissão, é o que liberta da dependência.",
-      "acao": "Faça 30 dias de treino de vendas: uma abordagem real por dia (ligar, oferecer, pedir indicação). Registre quantos 'não' e quantos 'sim' recebeu.",
-      "pergunta": "Se precisasse gerar R$ 5 mil extras este mês, você saberia vender o quê e para quem?",
-      "desafios": ["vender", "dinheiro"],
-      "plano": [
-        "Defina o que você vai vender (produto, serviço ou você mesmo).",
-        "Liste 30 pessoas ou empresas para abordar.",
-        "Escreva uma abertura curta: problema, solução, convite.",
-        "Faça as 2 primeiras abordagens.",
-        "Faça mais 2 e registre as objeções.",
-        "Ajuste o discurso com base nas objeções.",
-        "Mantenha uma abordagem por dia e anote 'sins' e 'nãos' no diário."
-      ],
-      "faq": [
-        {"p": "Não tenho perfil de vendedor.", "r": "Vender se aprende com repetição. O treino de 30 dias existe para isso: o desconforto diminui a cada abordagem."},
-        {"p": "Ele fala em ousadia. Devo me endividar?", "r": "A lição destaca o contrário: a ousadia dele era sustentada por uma habilidade comprovada de gerar receita. Sem isso, seria irresponsabilidade."}
-      ],
-      "exemplos": {
-        "clt": "Venda suas ideias internamente: proponha um projeto ao gestor com problema, solução e resultado esperado.",
-        "empreender": "Faça a primeira venda antes de investir em marca, site ou escritório.",
-        "negocio": "Volte a vender pessoalmente uma vez por semana, para não perder o contato com o cliente."
-      }
-    },
-    {
-      "id": "maturidade-nao-e-idade", "video": "PBqV4-R9qjA", "data": "2026-01-07", "ordem": 3, "inicio": 790, "categoria": "carreira",
-      "titulo": "Experiência e maturidade são coisas diferentes",
-      "ideia": "Ele era sempre o mais novo nas reuniões e nos prédios onde morava. Um jovem pode ter pouca experiência e mais maturidade do que alguém de 50 anos. A maturidade vem de se desafiar cedo.",
-      "acao": "Escolha um desafio 'grande demais para sua idade ou cargo' (pedir uma reunião, liderar um projeto, fazer uma proposta) e marque a data para fazê-lo nas próximas 2 semanas.",
-      "pergunta": "Que desafio você está esperando 'estar pronto' para encarar?",
-      "desafios": ["comecar", "mentalidade"],
-      "plano": [
-        "Liste desafios que você acha que ainda não é a hora de encarar.",
-        "Escolha um que, se desse certo, mudaria sua trajetória.",
-        "Escreva o que você precisa preparar.",
-        "Prepare-se em no máximo 3 dias.",
-        "Marque a data.",
-        "Encare o desafio.",
-        "Registre no diário o que aprendeu."
-      ],
-      "faq": [
-        {"p": "E se eu falhar por falta de experiência?", "r": "É assim que a maturidade se forma. Escolha desafios em que o pior caso seja suportável e encare."}
-      ],
-      "exemplos": {
-        "clt": "Peça para liderar um projeto antes de ter o cargo de líder.",
-        "empreender": "Marque reunião com um cliente grande mesmo sendo pequeno.",
-        "negocio": "Dê responsabilidade cedo para os jovens da equipe que mostram maturidade."
-      }
+     "p": "Como saber a carga tributária?",
+     "r": "Pergunte a um contador qual regime e alíquota se aplicam à sua atividade antes de abrir. Essa conversa costuma ser rápida e evita escolher um segmento que trabalha só para pagar imposto."
     }
-  ]
+   ],
+   "exemplos": {
+    "clt": "Antes de largar o emprego, teste a ideia como projeto paralelo e passe-a pelo filtro com vendas reais, não só com planilha.",
+    "empreender": "Compare duas ou três ideias lado a lado com as cinco notas. Abra a de maior soma, não a mais empolgante.",
+    "negocio": "Aplique o filtro em cada produto da sua linha. Corte ou reposicione o que tem margem baixa e nenhuma recorrência."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "margem-recompensa",
+   "video": "epGQK-hgQD0",
+   "data": "2026-11-16",
+   "ordem": 2,
+   "inicio": 150,
+   "categoria": "negocio",
+   "titulo": "Margem é a recompensa do empresário",
+   "ideia": "O trabalho para ter 5% de margem é praticamente o mesmo que para ter 50%. O que muda é o modelo escolhido. Ele evita segmentos de margem estruturalmente baixa e faz o planejamento tributário antes de escolher onde atuar.",
+   "acao": "Calcule a margem real do seu negócio (ou da ideia): preço menos todos os custos e impostos. Liste 2 mudanças de modelo, preço ou mix que a aumentariam.",
+   "pergunta": "Seu esforço está sendo recompensado ou você trabalha só para pagar custos e impostos?",
+   "desafios": [
+    "precificar",
+    "dinheiro"
+   ],
+   "plano": [
+    "Separe o faturamento do último mês (ou estime o de um mês típico).",
+    "Liste todos os custos: produto, pessoas, aluguel, ferramentas, taxas e impostos.",
+    "Calcule a margem líquida em porcentagem.",
+    "Calcule a margem de cada produto ou serviço separadamente.",
+    "Identifique o item que mais vende e menos lucra.",
+    "Escreva 2 mudanças: subir preço, reduzir custo, mudar o mix ou criar uma versão premium.",
+    "Coloque uma das mudanças em prática e anote o resultado no diário."
+   ],
+   "faq": [
+    {
+     "p": "Qual margem é boa?",
+     "r": "Depende do setor, mas o ponto da lição é comparar modelos: entre dois caminhos com esforço parecido, escolha o de margem maior."
+    },
+    {
+     "p": "Se eu subir preço, perco clientes?",
+     "r": "Pode perder alguns. Faça a conta: muitas vezes vender menos com margem maior dá mais lucro e menos trabalho. Teste com clientes novos primeiro."
+    }
+   ],
+   "exemplos": {
+    "clt": "Aplique em você: quanto sobra do seu salário depois dos custos de trabalhar (transporte, tempo, alimentação)? Isso é a sua margem.",
+    "empreender": "Antes de abrir, simule a margem de três modelos diferentes para a mesma ideia.",
+    "negocio": "Faça a margem por produto. É comum descobrir que o item 'carro-chefe' é o que menos dá lucro."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "era-do-high-ticket",
+   "video": "epGQK-hgQD0",
+   "data": "2026-11-16",
+   "ordem": 3,
+   "inicio": 420,
+   "categoria": "negocio",
+   "titulo": "A era do high ticket",
+   "ideia": "O custo para conquistar cada cliente (CAC) só sobe, porque anúncio funciona como leilão. Produto barato depende de volume, e volume está cada vez mais caro. Ele compara duas empresas com a mesma receita: uma com 700 mil clientes e outra com 7 mil, graças ao ticket maior.",
+   "acao": "Desenhe uma versão premium do que você vende, com mais resultado, acompanhamento ou acesso, por pelo menos 5 vezes o preço atual. Ofereça a 3 clientes este mês.",
+   "pergunta": "Que versão do seu produto entregaria tanto resultado que o preço viraria detalhe?",
+   "desafios": [
+    "precificar",
+    "vender"
+   ],
+   "plano": [
+    "Descubra quanto custa hoje conquistar um cliente (anúncios, tempo, comissões divididos por vendas).",
+    "Liste o que seus melhores clientes mais valorizam no seu trabalho.",
+    "Desenhe a versão premium: mais resultado, acompanhamento próximo, acesso ou exclusividade.",
+    "Defina o preço premium como pelo menos 5 vezes o atual e escreva a promessa de resultado.",
+    "Escolha 3 clientes atuais com maior potencial.",
+    "Apresente a oferta premium aos 3.",
+    "Registre as objeções e ajuste a oferta."
+   ],
+   "faq": [
+    {
+     "p": "Meu público não pode pagar caro.",
+     "r": "Talvez seu público atual não, mas existe um público que pode. High ticket muitas vezes significa mudar para quem você vende, como empresas em vez de pessoas físicas."
+    },
+    {
+     "p": "Vale abandonar o produto barato?",
+     "r": "Não precisa. O barato pode ser a porta de entrada e o premium o destino. O erro é depender só de volume barato com CAC subindo."
+    }
+   ],
+   "exemplos": {
+    "clt": "Na carreira, high ticket é se tornar o profissional que resolve problemas caros. Busque projetos ligados a faturamento ou economia grande.",
+    "empreender": "Comece com poucos clientes pagando bem em vez de muitos pagando pouco: valida mais rápido e exige menos marketing.",
+    "negocio": "Crie um nível VIP da sua oferta e mire os 10% de clientes que mais compram."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "preco-pelo-roi",
+   "video": "epGQK-hgQD0",
+   "data": "2026-11-16",
+   "ordem": 4,
+   "inicio": 760,
+   "categoria": "carreira",
+   "titulo": "Cobre pelo retorno, não pelo concorrente",
+   "ideia": "Para ele, a forma certa de precificar é pelo ROI: se você gera R$ 1 milhão de lucro para o cliente, cobrar R$ 200 mil não é caro. Mas é preciso saber o valor que você gera e ser capaz de comunicá-lo.",
+   "acao": "Escreva, em reais, o resultado que seu trabalho gera para um cliente típico (economia, lucro ou tempo). Reescreva sua apresentação de vendas começando por esse número.",
+   "pergunta": "Você sabe dizer, em reais, quanto vale o resultado que entrega?",
+   "desafios": [
+    "precificar",
+    "vender"
+   ],
+   "plano": [
+    "Escolha um cliente típico (ou seu empregador) e liste os resultados que você gerou para ele.",
+    "Converta cada resultado em reais: mais vendas, custo evitado, horas economizadas.",
+    "Some o valor anual gerado.",
+    "Compare com o que você cobra (ou ganha). Qual a proporção?",
+    "Reescreva sua apresentação começando pelo resultado em reais.",
+    "Use a nova apresentação com um cliente ou numa conversa sobre aumento.",
+    "Anote a reação e ajuste o discurso."
+   ],
+   "faq": [
+    {
+     "p": "Não sei medir o resultado que gero.",
+     "r": "Comece perguntando aos clientes o que mudou depois do seu trabalho. Estimativas conservadoras já servem; o importante é sair do 'cobro por hora'."
+    },
+    {
+     "p": "E se o concorrente cobra muito menos?",
+     "r": "Então mostre por que seu resultado vale mais. Se o resultado é igual, preço é a única diferença, e aí você precisa melhorar a entrega."
+    }
+   ],
+   "exemplos": {
+    "clt": "Leve para a conversa de aumento quanto dinheiro seu trabalho gerou ou economizou para a empresa no ano.",
+    "empreender": "Na primeira proposta, comece pelo resultado esperado em reais e só depois apresente o preço.",
+    "negocio": "Revise a tabela de preços: produtos que geram retorno alto para o cliente provavelmente estão baratos."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "especialista-empresario",
+   "video": "epGQK-hgQD0",
+   "data": "2026-11-16",
+   "ordem": 5,
+   "inicio": 850,
+   "categoria": "carreira",
+   "titulo": "De especialista a empresário: troque horas por programa",
+   "ideia": "Médicos, dentistas, advogados e nutricionistas costumam vender o próprio tempo. A virada é criar um programa com começo, meio e fim, equipe em volta e resultado definido. As competências são: produto e modelo, vendas, atendimento para reter, liderança e gestão financeira.",
+   "acao": "Transforme seu serviço avulso em um pacote de 3 a 6 meses: defina o resultado prometido, as etapas e o que cada profissional faz. Dê um preço a ele com base no resultado.",
+   "pergunta": "Se você parasse de trabalhar um mês, sua renda pararia junto?",
+   "desafios": [
+    "comecar",
+    "precificar",
+    "dinheiro"
+   ],
+   "plano": [
+    "Escreva o resultado final que seus melhores clientes buscam.",
+    "Divida o caminho até esse resultado em 4 a 6 etapas.",
+    "Defina a duração do programa (3 a 6 meses) e o que acontece em cada etapa.",
+    "Liste quem mais poderia ajudar na entrega (outro profissional, assistente, material gravado).",
+    "Dê um preço ao programa com base no resultado, não nas horas.",
+    "Apresente o programa a 3 clientes atuais ou antigos.",
+    "Avalie em qual das 5 competências (produto, vendas, retenção, liderança, finanças) você é mais fraco e escolha um estudo."
+   ],
+   "faq": [
+    {
+     "p": "Meu conselho profissional permite isso?",
+     "r": "Cada profissão tem regras próprias de publicidade e cobrança. Confirme com seu conselho de classe antes de divulgar o programa."
+    },
+    {
+     "p": "E se o cliente não quiser pagar adiantado?",
+     "r": "Ofereça parcelamento ao longo do programa. O importante é vender o resultado completo, não sessões soltas."
+    }
+   ],
+   "exemplos": {
+    "clt": "Mesmo empregado, monte um 'programa' de algo que você domina e ofereça como freelance aos fins de semana.",
+    "empreender": "Se você tem uma especialidade, seu primeiro negócio pode ser um programa com 5 clientes, sem precisar de loja ou sócio.",
+    "negocio": "Transforme o serviço mais vendido em um pacote com etapas e acompanhamento, e treine alguém para entregar parte dele."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "audiencia-produto",
+   "video": "epGQK-hgQD0",
+   "data": "2026-11-16",
+   "ordem": 6,
+   "inicio": 1010,
+   "categoria": "negocio",
+   "titulo": "Audiência só vale com produto próprio",
+   "ideia": "Ele começou na internet em 2010 já como empresário, e com o tempo comunicação e negócio passaram a se alimentar. Quem vive só de publicidade depende de outra empresa. Quem tem produto próprio usa a atenção para vender algo que controla, mesmo com poucos seguidores fiéis.",
+   "acao": "Publique 3 conteúdos curtos esta semana ensinando algo do seu ofício. Termine cada um com um convite claro para o seu produto ou serviço.",
+   "pergunta": "Quem já confia em você hoje e ainda não recebeu uma oferta sua?",
+   "desafios": [
+    "vender",
+    "comecar"
+   ],
+   "plano": [
+    "Liste as 10 perguntas que seus clientes mais fazem.",
+    "Escolha 3 e escreva uma resposta curta para cada (texto ou roteiro de vídeo de 1 minuto).",
+    "Defina o convite do final: o que a pessoa deve fazer para comprar ou falar com você.",
+    "Publique o primeiro conteúdo.",
+    "Publique o segundo e responda todos os comentários.",
+    "Publique o terceiro e mande mensagem para quem interagiu.",
+    "Conte quantas conversas de venda surgiram e registre no diário."
+   ],
+   "faq": [
+    {
+     "p": "Tenho vergonha de aparecer.",
+     "r": "Comece com texto ou com vídeos mostrando só o trabalho. O que importa é ensinar algo útil e fazer o convite."
+    },
+    {
+     "p": "Tenho poucos seguidores, vale a pena?",
+     "r": "Sim. A lição é justamente essa: poucos seguidores fiéis com um produto próprio valem mais que muitos sem nada para vender."
+    }
+   ],
+   "exemplos": {
+    "clt": "Compartilhe no LinkedIn o que você aprende no trabalho. Isso constrói reputação e atrai oportunidades.",
+    "empreender": "Comece a produzir conteúdo antes de abrir: você já chega ao lançamento com gente interessada.",
+    "negocio": "Transforme as dúvidas que sua equipe responde todo dia em conteúdo com chamada para o seu produto."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "empresa-enxuta-ia",
+   "video": "epGQK-hgQD0",
+   "data": "2026-11-16",
+   "ordem": 7,
+   "inicio": 1110,
+   "categoria": "carreira",
+   "titulo": "Use IA sem ansiedade",
+   "ideia": "Numa das empresas dele, a área de pós-venda deve passar de 200 para cerca de 20 pessoas com IA. O conselho é não deixar a incerteza virar ansiedade: estudar o tema, agir e lembrar que nenhuma máquina ocupa o lugar do afeto e da relação com as pessoas.",
+   "acao": "Escolha uma tarefa repetitiva do seu dia (proposta, resposta a cliente, organização) e passe-a para uma ferramenta de IA esta semana. Anote quanto tempo você ganhou.",
+   "pergunta": "Que parte do seu trabalho uma IA já faria hoje e o que só você pode fazer?",
+   "desafios": [
+    "ia",
+    "foco"
+   ],
+   "plano": [
+    "Anote durante um dia todas as tarefas que você repete.",
+    "Marque as que são escrita, resumo, organização ou respostas padrão.",
+    "Escolha uma e teste com uma ferramenta de IA.",
+    "Ajuste as instruções até o resultado ficar bom.",
+    "Use a IA nessa tarefa pelo resto da semana e cronometre.",
+    "Liste o que só você pode fazer (relacionamento, decisão, criatividade) e dedique o tempo ganho a isso.",
+    "Registre quanto tempo economizou no diário."
+   ],
+   "faq": [
+    {
+     "p": "A IA vai tirar meu emprego?",
+     "r": "Algumas funções vão encolher, como o próprio exemplo mostra. A melhor defesa é aprender a usar e se deslocar para o que exige julgamento e relação humana."
+    },
+    {
+     "p": "Posso colocar dados de clientes na IA?",
+     "r": "Cuidado com dados pessoais e sigilosos. Verifique a política da ferramenta e as regras da sua empresa antes."
+    }
+   ],
+   "exemplos": {
+    "clt": "Seja quem leva IA para a equipe: automatize um relatório chato e mostre ao gestor.",
+    "empreender": "Use IA para fazer com uma pessoa o que antes exigia três: propostas, posts e atendimento inicial.",
+    "negocio": "Mapeie a área com mais tarefas repetitivas e faça um piloto de IA por 30 dias."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "grato-nao-conformado",
+   "video": "U_KDK-CHFio",
+   "data": "2026-10-21",
+   "ordem": 1,
+   "inicio": 400,
+   "categoria": "vida",
+   "titulo": "Grato sempre, conformado jamais",
+   "ideia": "Gratidão e conformismo são coisas diferentes. Conformar-se é ganhar a forma do lugar onde você está, e quem ganha essa forma não sai dali. Dá para agradecer pelo que tem e, ao mesmo tempo, recusar-se a ficar.",
+   "acao": "Escreva uma situação da sua vida em que você está 'de passagem'. Ao lado, anote um passo que você dá ainda esta semana para sair dela.",
+   "pergunta": "Em que área da sua vida você tem chamado de gratidão o que na verdade é conformismo?",
+   "desafios": [
+    "mentalidade",
+    "comecar"
+   ],
+   "plano": [
+    "Escreva 3 coisas pelas quais você é grato hoje.",
+    "Escreva 3 situações em que você sente que 'não pertence' (trabalho, renda, moradia, hábitos).",
+    "Escolha a situação que mais incomoda.",
+    "Descreva como seria estar fora dela daqui a 12 meses.",
+    "Liste 5 passos possíveis para chegar lá.",
+    "Execute o primeiro passo.",
+    "Registre no diário como se sentiu agindo em vez de só aceitar."
+   ],
+   "faq": [
+    {
+     "p": "Querer mais não é ingratidão?",
+     "r": "Não. A lição separa as duas coisas: você pode ser grato e não aceitar ficar no mesmo lugar."
+    },
+    {
+     "p": "E se eu não souber para onde ir?",
+     "r": "Comece pelo que você não quer mais. Saber do que está de passagem já orienta os primeiros passos."
+    }
+   ],
+   "exemplos": {
+    "clt": "Agradeça o emprego e, ao mesmo tempo, monte um plano para o próximo nível: promoção, novo emprego ou renda extra.",
+    "empreender": "Use a insatisfação com a situação atual como combustível para tirar a ideia do papel.",
+    "negocio": "Mesmo com o negócio indo bem, pergunte onde você se acomodou: produto, equipe ou crescimento."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "sala-de-trofeus",
+   "video": "U_KDK-CHFio",
+   "data": "2026-10-21",
+   "ordem": 2,
+   "inicio": 920,
+   "categoria": "vida",
+   "titulo": "Monte sua sala de troféus",
+   "ideia": "A confiança do Flávio nasceu de passar, aos 15 anos e na terceira tentativa, numa prova disputadíssima. O ponto não é só ter vencido, é ter se apropriado da vitória: diante de cada desafio novo, ele pensa que aquilo é mais fácil do que algo que já superou.",
+   "acao": "Liste as 3 conquistas mais difíceis da sua vida, mesmo as pequenas. Guarde a lista no celular e leia antes da próxima situação que te dá medo.",
+   "pergunta": "Qual vitória sua você está subestimando e que já prova do que você é capaz?",
+   "desafios": [
+    "mentalidade",
+    "decidir"
+   ],
+   "plano": [
+    "Relembre 10 momentos em que você superou algo difícil, de qualquer época.",
+    "Escolha os 3 mais marcantes.",
+    "Para cada um, escreva o que você fez para conseguir.",
+    "Escreva o que cada conquista prova sobre você.",
+    "Identifique um desafio atual que te dá medo.",
+    "Compare: esse desafio é mais difícil do que as conquistas da lista?",
+    "Dê o primeiro passo no desafio e registre no diário."
+   ],
+   "faq": [
+    {
+     "p": "Minhas conquistas são pequenas.",
+     "r": "A lição mostra justamente isso: passar numa prova aos 15 anos parece pequeno visto de longe, mas foi decisivo. Dê o valor certo ao que você já fez."
+    }
+   ],
+   "exemplos": {
+    "clt": "Antes de uma entrevista ou reunião difícil, leia sua lista de troféus.",
+    "empreender": "Lembre de algo difícil que você já fez quando o medo de abrir o negócio aparecer.",
+    "negocio": "Faça a sala de troféus da empresa com a equipe: crises superadas e metas batidas."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "pior-que-pode-acontecer",
+   "video": "U_KDK-CHFio",
+   "data": "2026-10-21",
+   "ordem": 3,
+   "inicio": 1760,
+   "categoria": "negocio",
+   "titulo": "A pergunta: qual é o pior que pode acontecer?",
+   "ideia": "Flávio e a esposa usam a mesma pergunta em toda decisão importante, de mudar de país aos 21 anos até comprar o Orlando City. Se o pior cenário é suportável e não ameaça o que mais importa, a decisão fica leve.",
+   "acao": "Pegue uma decisão que você está adiando. Escreva o pior cenário realista e o que faria se ele acontecesse. Se for suportável, decida em até 48 horas.",
+   "pergunta": "Qual decisão você adia por medo de um 'pior cenário' que nunca colocou no papel?",
+   "desafios": [
+    "decidir",
+    "mentalidade"
+   ],
+   "plano": [
+    "Liste as decisões que você está adiando.",
+    "Escolha a mais importante.",
+    "Escreva o pior cenário realista se der errado.",
+    "Escreva o que você faria para se recuperar desse cenário.",
+    "Verifique se o pior cenário ameaça o que mais importa para você (família, saúde, valores).",
+    "Converse com alguém de confiança sobre a análise.",
+    "Tome a decisão e registre no diário."
+   ],
+   "faq": [
+    {
+     "p": "E se o pior cenário for realmente grave?",
+     "r": "Então a pergunta cumpriu seu papel: mostrou que é preciso reduzir o risco antes, testando em menor escala ou guardando uma reserva."
+    }
+   ],
+   "exemplos": {
+    "clt": "Pedir demissão para empreender: o pior caso é voltar ao mercado com uma experiência nova. Calcule quantos meses de reserva você precisa.",
+    "empreender": "Investir no primeiro estoque: o pior caso é perder esse valor. Ele é suportável?",
+    "negocio": "Contratar alguém estratégico: o pior caso é um custo de alguns meses. Compare com o custo de não crescer."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "dinheiro-no-tapete",
+   "video": "U_KDK-CHFio",
+   "data": "2026-10-21",
+   "ordem": 4,
+   "inicio": 2020,
+   "categoria": "vida",
+   "titulo": "Ponha as coisas no devido lugar",
+   "ideia": "Coragem para arriscar vem de proteger o que tem valor de verdade. Para ele, família vem muito acima do dinheiro: dinheiro é bom, mas deve ser servo e não senhor. Quem inverte a ordem fica frágil quando perde dinheiro.",
+   "acao": "Escreva, em ordem, as 5 coisas mais importantes da sua vida. Combine com quem mora com você uma regra do tipo 'nunca brigamos por algo material'.",
+   "pergunta": "Se você perdesse dinheiro amanhã, o que de mais importante continuaria intacto?",
+   "desafios": [
+    "mentalidade",
+    "dinheiro"
+   ],
+   "plano": [
+    "Liste as 5 coisas mais importantes da sua vida, em ordem.",
+    "Compare com onde foram seu tempo e sua energia na última semana.",
+    "Identifique uma inversão (ex.: trabalho ocupando o lugar da família).",
+    "Converse com quem mora com você sobre a lista.",
+    "Combinem uma regra de convivência sobre dinheiro e coisas materiais.",
+    "Dedique um tempo exclusivo à prioridade número 1.",
+    "Registre no diário o que mudou."
+   ],
+   "faq": [
+    {
+     "p": "Isso não é desculpa para não ganhar dinheiro?",
+     "r": "Não. Ele defende ganhar muito dinheiro. O ponto é a ordem: dinheiro no lugar certo deixa você mais corajoso, não menos ambicioso."
+    }
+   ],
+   "exemplos": {
+    "clt": "Antes de aceitar uma promoção que exige muito mais horas, confira se ela respeita sua lista de prioridades.",
+    "empreender": "Defina com a família o que não pode ser arriscado (ex.: reserva de emergência) antes de investir.",
+    "negocio": "Ajude líderes da equipe a equilibrar ambição e prioridades. Gente equilibrada decide melhor."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "olhe-o-mercado",
+   "video": "U_KDK-CHFio",
+   "data": "2026-10-21",
+   "ordem": 5,
+   "inicio": 2390,
+   "categoria": "negocio",
+   "titulo": "Olhe o tamanho do mercado, não o barulho",
+   "ideia": "Apesar de burocracia e impostos, ele vê o Brasil como um dos maiores mercados consumidores do mundo, com gente querendo crescer e pouca concorrência em produtos de qualidade.",
+   "acao": "Liste 3 produtos ou serviços que, na sua cidade ou nicho, são entregues com má qualidade. Escolha um e escreva como você faria melhor.",
+   "pergunta": "Que necessidade mal atendida você vê todo dia e ignora?",
+   "desafios": [
+    "comecar"
+   ],
+   "plano": [
+    "Anote durante 2 dias toda vez que você ou alguém reclamar de um serviço.",
+    "Pergunte a 5 pessoas qual serviço da cidade elas acham ruim.",
+    "Liste os 3 problemas mais citados.",
+    "Escolha um e pesquise quem atende hoje e quanto cobra.",
+    "Escreva como seria uma versão de qualidade.",
+    "Estime quantas pessoas pagariam por ela.",
+    "Registre no diário se a ideia passa pelo filtro do negócio."
+   ],
+   "faq": [
+    {
+     "p": "Já existe muita gente fazendo isso.",
+     "r": "Pode existir muita gente, mas pouca fazendo com qualidade. É aí que ele vê espaço."
+    }
+   ],
+   "exemplos": {
+    "clt": "Observe os problemas mal resolvidos dentro da sua empresa: resolvê-los é uma forma de crescer na carreira.",
+    "empreender": "Procure oportunidades no que as pessoas reclamam, não no que está na moda.",
+    "negocio": "Pergunte aos clientes o que eles compram de outros fornecedores e de que reclamam. Pode ser sua próxima linha."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "so-o-que-controla",
+   "video": "U_KDK-CHFio",
+   "data": "2026-10-21",
+   "ordem": 6,
+   "inicio": 3300,
+   "categoria": "carreira",
+   "titulo": "Gaste energia só com o que você controla",
+   "ideia": "Ele não perde sono com quem será eleito ou com a macroeconomia. Tira essas variáveis da equação, põe toda a energia nas que controla e evita ficar refém de qualquer coisa: emprego, cidade ou governo.",
+   "acao": "Faça duas colunas: 'controlo' e 'não controlo', com suas preocupações atuais. Troque 30 minutos diários de notícias por uma ação da primeira coluna.",
+   "pergunta": "De que você está refém hoje e o que precisaria para ter uma alternativa?",
+   "desafios": [
+    "foco",
+    "mentalidade"
+   ],
+   "plano": [
+    "Liste todas as suas preocupações atuais.",
+    "Separe em 'controlo' e 'não controlo'.",
+    "Para cada item da segunda coluna, escreva: 'aceito e sigo'.",
+    "Escolha 3 itens da primeira coluna para agir.",
+    "Corte 30 minutos de notícias ou redes por dia.",
+    "Use esse tempo numa ação concreta da primeira coluna.",
+    "Liste de que você é refém hoje e um passo para criar uma alternativa."
+   ],
+   "faq": [
+    {
+     "p": "Ignorar o noticiário não é alienação?",
+     "r": "Não é ignorar tudo, é não deixar o que você não controla ocupar a energia do que você controla. Informe-se em pouco tempo e volte à ação."
+    }
+   ],
+   "exemplos": {
+    "clt": "Em vez de se preocupar com demissões, invista em habilidades e numa reserva que lhe deem alternativa.",
+    "empreender": "Não espere o cenário ideal para começar. Comece pelo que depende de você: produto e vendas.",
+    "negocio": "Em crise, foque em margem, caixa e clientes, que são variáveis que você controla."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "diagnostico-do-ano",
+   "video": "U_KDK-CHFio",
+   "data": "2026-10-21",
+   "ordem": 7,
+   "inicio": 4080,
+   "categoria": "carreira",
+   "titulo": "Para o ano ser novo, você precisa ser novo",
+   "ideia": "Se o resultado não veio, há três diagnósticos possíveis: faltou intensidade ou senso de urgência; você trabalhou muito, mas no caminho errado; ou está tudo certo e só falta tempo de maturação. Cada um pede um remédio diferente.",
+   "acao": "Escolha sua meta principal de 2026 e responda honestamente qual dos três diagnósticos se aplica. Defina uma mudança concreta (estratégia, companhia ou caminho) para 2027.",
+   "pergunta": "Você não teve resultado por falta de esforço, por esforço no lugar errado ou por pouco tempo?",
+   "desafios": [
+    "foco",
+    "decidir"
+   ],
+   "plano": [
+    "Escreva sua meta principal deste ano e o resultado real.",
+    "Avalie a intensidade: quantas horas e ações você realmente dedicou?",
+    "Avalie o caminho: a estratégia era a certa? Alguém com resultado faria igual?",
+    "Avalie o tempo: é cedo demais para colher?",
+    "Escolha o diagnóstico principal.",
+    "Defina uma mudança: de estratégia, de companhia ou de caminho.",
+    "Escreva a meta do próximo ano já com essa mudança."
+   ],
+   "faq": [
+    {
+     "p": "Como saber se é falta de tempo e não caminho errado?",
+     "r": "Veja se há sinais de progresso: clientes voltando, indicações, números subindo devagar. Sem nenhum sinal, provavelmente é o caminho."
+    }
+   ],
+   "exemplos": {
+    "clt": "Não foi promovido? Veja se faltou entrega, se você estava na área errada ou se só falta tempo.",
+    "empreender": "Se a ideia não saiu do papel, quase sempre o diagnóstico é intensidade.",
+    "negocio": "Faturamento estagnado com equipe trabalhando muito costuma ser caminho errado: reveja modelo e posicionamento."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "teste-da-urgencia",
+   "video": "U_KDK-CHFio",
+   "data": "2026-10-21",
+   "ordem": 8,
+   "inicio": 4220,
+   "categoria": "vida",
+   "titulo": "O teste do senso de urgência",
+   "ideia": "Para saber se você tentou de verdade, imagine que a vida de quem você mais ama dependesse daquilo. Se você teria feito diferente, o problema foi urgência, não capacidade.",
+   "acao": "Pense numa meta que você 'tentou, mas não conseguiu'. Responda: com a vida de alguém em jogo, o que eu faria amanhã? Faça essa primeira ação amanhã.",
+   "pergunta": "O que você faria diferente se não pudesse falhar?",
+   "desafios": [
+    "foco",
+    "mentalidade"
+   ],
+   "plano": [
+    "Escolha uma meta que você diz ter tentado.",
+    "Liste o que você realmente fez por ela.",
+    "Faça o teste: com algo muito importante em jogo, o que faria diferente?",
+    "Liste essas ações.",
+    "Escolha a primeira e faça amanhã.",
+    "Repita uma ação por dia até o fim da semana.",
+    "Registre no diário a diferença de resultado."
+   ],
+   "faq": [
+    {
+     "p": "Viver com urgência não causa estresse?",
+     "r": "Urgência é sobre prioridade e intensidade no que importa, não sobre ansiedade. Use o teste para metas específicas, não para tudo."
+    }
+   ],
+   "exemplos": {
+    "clt": "Aquele curso que você nunca termina: com urgência real, você reservaria 1 hora por dia.",
+    "empreender": "Com urgência, você faria 10 ofertas esta semana em vez de esperar o site ficar pronto.",
+    "negocio": "Aplique o teste à meta de vendas do trimestre com a equipe."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "estabilidade-nao-existe",
+   "video": "Z4e9O0f2IY0",
+   "data": "2026-04-13",
+   "ordem": 1,
+   "inicio": 270,
+   "categoria": "vida",
+   "titulo": "Estabilidade não existe",
+   "ideia": "Expulso da Marinha aos 17, ele descobriu na pele que a vida garantida era ilusão. Guerras, pandemias e demissões lembram que não há segurança total. Em vez de acreditar que está seguro, ele cuida das coisas sabendo que acabam se não forem cuidadas, como um jardim ou um casamento.",
+   "acao": "Escolha uma área que você trata como 'garantida' (emprego, relação, saúde, principal cliente) e defina um cuidado semanal fixo para ela, com dia e horário.",
+   "pergunta": "Em que parte da sua vida você parou de cuidar porque achou que estava garantida?",
+   "desafios": [
+    "mentalidade",
+    "dinheiro"
+   ],
+   "plano": [
+    "Liste o que você considera 'garantido' na sua vida.",
+    "Para cada item, pergunte: e se acabasse amanhã?",
+    "Escolha o item mais importante e mais descuidado.",
+    "Defina um cuidado semanal com dia e horário.",
+    "Faça o primeiro cuidado esta semana.",
+    "Pense numa fonte de renda ou alternativa que reduziria sua dependência de um único pilar.",
+    "Registre no diário."
+   ],
+   "faq": [
+    {
+     "p": "Isso não gera ansiedade?",
+     "r": "A ideia é o contrário: aceitar que não há garantia leva você a cuidar e a criar alternativas, o que traz mais tranquilidade do que fingir segurança."
+    }
+   ],
+   "exemplos": {
+    "clt": "Seu emprego não é garantido: mantenha o currículo, a rede de contatos e uma reserva sempre em dia.",
+    "empreender": "Não espere estabilidade para começar. Ela não virá de nenhum lado.",
+    "negocio": "Depende de um cliente grande ou de um canal só? Diversifique antes de precisar."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "fase-da-vida",
+   "video": "Z4e9O0f2IY0",
+   "data": "2026-04-13",
+   "ordem": 2,
+   "inicio": 1620,
+   "categoria": "negocio",
+   "titulo": "Leia a fase da sua vida antes de imobilizar",
+   "ideia": "Na fase de 'estourar', ele defende pôr tempo, dinheiro e foco no que produz mais dinheiro, mantendo mobilidade, em vez de prender capital num imóvel. Ter casa não é ruim, depende do momento. Ele mesmo só constrói onde pretende ficar pelo menos 3 anos.",
+   "acao": "Antes do próximo compromisso grande (financiamento, reforma, carro), responda: isso ainda fará sentido daqui a 3 anos? E se esse dinheiro fosse para o meu negócio ou carreira, quanto renderia?",
+   "pergunta": "Você está na fase de construir patrimônio fixo ou na fase de romper?",
+   "desafios": [
+    "dinheiro",
+    "decidir"
+   ],
+   "plano": [
+    "Liste os compromissos financeiros grandes que você tem ou planeja.",
+    "Escreva onde quer estar (cidade, trabalho, negócio) daqui a 3 anos.",
+    "Para cada compromisso, pergunte se combina com esse plano.",
+    "Estime quanto esse dinheiro renderia investido no seu negócio ou formação.",
+    "Defina se você está na fase de romper ou de consolidar.",
+    "Ajuste um compromisso de acordo com a fase.",
+    "Registre a decisão no diário."
+   ],
+   "faq": [
+    {
+     "p": "Então nunca devo comprar casa?",
+     "r": "Não é isso. Ele tem várias casas. O ponto é o momento: quando você ainda está tentando 'acontecer', mobilidade e capital costumam valer mais."
+    },
+    {
+     "p": "Isso é recomendação de investimento?",
+     "r": "Não. É uma forma de pensar a decisão. Para escolhas financeiras grandes, converse com um profissional que conheça sua situação."
+    }
+   ],
+   "exemplos": {
+    "clt": "Antes de um financiamento de 30 anos, pense se ele limita mudar de cidade por uma oportunidade.",
+    "empreender": "No início, prefira investir no negócio a trocar de carro.",
+    "negocio": "Avalie se vale imobilizar caixa em imóvel próprio ou manter o dinheiro girando no crescimento."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "conselho-que-contraria",
+   "video": "Z4e9O0f2IY0",
+   "data": "2026-04-13",
+   "ordem": 3,
+   "inicio": 1850,
+   "categoria": "carreira",
+   "titulo": "Entenda o porquê do conselho que te contraria",
+   "ideia": "Quando recebe um conselho que vai contra o que quer, ele não descarta nem obedece no automático: procura entender o raciocínio por trás. Foi assim que o apresentador desistiu de uma casa que, anos depois, não faria mais sentido.",
+   "acao": "Lembre o último conselho que te incomodou. Pergunte a quem deu: 'Qual é o raciocínio por trás disso?' Anote o que muda na sua decisão.",
+   "pergunta": "Qual conselho você rejeitou mais por orgulho do que por análise?",
+   "desafios": [
+    "decidir",
+    "mentalidade"
+   ],
+   "plano": [
+    "Liste 3 conselhos que você recebeu e não gostou.",
+    "Escolha o que vem de alguém com resultado no assunto.",
+    "Escreva o que você acha que motivou o conselho.",
+    "Pergunte diretamente à pessoa o raciocínio dela.",
+    "Compare com o seu raciocínio.",
+    "Decida: seguir, adaptar ou recusar, com motivo escrito.",
+    "Registre no diário."
+   ],
+   "faq": [
+    {
+     "p": "Devo seguir todo conselho de quem tem sucesso?",
+     "r": "Não. A lição é entender o porquê antes de decidir. Às vezes o contexto da pessoa é diferente do seu."
+    }
+   ],
+   "exemplos": {
+    "clt": "Feedback duro do gestor: em vez de se defender, pergunte o que ele viu para chegar a essa conclusão.",
+    "empreender": "Quando alguém disser que sua ideia não vai dar certo, peça os motivos. Eles são informação gratuita.",
+    "negocio": "Crie o hábito de perguntar à equipe o porquê das discordâncias antes de decidir."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "ganhe-mais",
+   "video": "PBqV4-R9qjA",
+   "data": "2026-01-07",
+   "ordem": 1,
+   "inicio": 0,
+   "categoria": "vida",
+   "titulo": "Você não enriquece cortando o cafezinho",
+   "ideia": "Para ele, quem enriquece produz mais dinheiro: ganha mais, gasta menos do que ganha e toma boas decisões, como não se aventurar em investimentos que não entende. E ganhar mais passa por vender, seja um produto, seja você mesmo para um emprego melhor.",
+   "acao": "Liste 3 formas concretas de aumentar sua renda nos próximos 90 dias (aumento, cliente novo, serviço extra). Escolha uma e dê o primeiro passo em 7 dias.",
+   "pergunta": "Você gasta mais energia cortando despesas ou aumentando o que ganha?",
+   "desafios": [
+    "dinheiro",
+    "vender"
+   ],
+   "plano": [
+    "Anote sua renda atual e quanto sobra por mês.",
+    "Liste tudo que você sabe fazer e alguém pagaria.",
+    "Escreva 3 formas de aumentar a renda em 90 dias.",
+    "Escolha a mais rápida de testar.",
+    "Defina a primeira ação e faça.",
+    "Mantenha os gastos abaixo do que ganha, sem se aventurar em investimentos que não entende.",
+    "Registre no diário quanto entrou a mais."
+   ],
+   "faq": [
+    {
+     "p": "Economizar não ajuda?",
+     "r": "Ajuda e é parte da regra (gastar menos do que ganha). O ponto é que só economizar não leva longe; o salto vem de aumentar a renda."
+    }
+   ],
+   "exemplos": {
+    "clt": "Prepare uma conversa de aumento ou procure uma vaga que pague mais: isso também é vender.",
+    "empreender": "Comece vendendo um serviço simples antes de montar a empresa completa.",
+    "negocio": "Em vez de só cortar custos, crie uma oferta nova para quem já é cliente."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "vendas-como-arma",
+   "video": "PBqV4-R9qjA",
+   "data": "2026-01-07",
+   "ordem": 2,
+   "inicio": 560,
+   "categoria": "carreira",
+   "titulo": "Vendas é ferramenta de liberdade",
+   "ideia": "Aos 23 anos ele comprou um apartamento que não cabia no bolso porque sabia que conseguiria gerar a receita vendendo. A ousadia só foi responsável porque ele tinha essa habilidade. Para ele, vender não é só uma profissão, é o que liberta da dependência.",
+   "acao": "Faça 30 dias de treino de vendas: uma abordagem real por dia (ligar, oferecer, pedir indicação). Registre quantos 'não' e quantos 'sim' recebeu.",
+   "pergunta": "Se precisasse gerar R$ 5 mil extras este mês, você saberia vender o quê e para quem?",
+   "desafios": [
+    "vender",
+    "dinheiro"
+   ],
+   "plano": [
+    "Defina o que você vai vender (produto, serviço ou você mesmo).",
+    "Liste 30 pessoas ou empresas para abordar.",
+    "Escreva uma abertura curta: problema, solução, convite.",
+    "Faça as 2 primeiras abordagens.",
+    "Faça mais 2 e registre as objeções.",
+    "Ajuste o discurso com base nas objeções.",
+    "Mantenha uma abordagem por dia e anote 'sins' e 'nãos' no diário."
+   ],
+   "faq": [
+    {
+     "p": "Não tenho perfil de vendedor.",
+     "r": "Vender se aprende com repetição. O treino de 30 dias existe para isso: o desconforto diminui a cada abordagem."
+    },
+    {
+     "p": "Ele fala em ousadia. Devo me endividar?",
+     "r": "A lição destaca o contrário: a ousadia dele era sustentada por uma habilidade comprovada de gerar receita. Sem isso, seria irresponsabilidade."
+    }
+   ],
+   "exemplos": {
+    "clt": "Venda suas ideias internamente: proponha um projeto ao gestor com problema, solução e resultado esperado.",
+    "empreender": "Faça a primeira venda antes de investir em marca, site ou escritório.",
+    "negocio": "Volte a vender pessoalmente uma vez por semana, para não perder o contato com o cliente."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "maturidade-nao-e-idade",
+   "video": "PBqV4-R9qjA",
+   "data": "2026-01-07",
+   "ordem": 3,
+   "inicio": 790,
+   "categoria": "carreira",
+   "titulo": "Experiência e maturidade são coisas diferentes",
+   "ideia": "Ele era sempre o mais novo nas reuniões e nos prédios onde morava. Um jovem pode ter pouca experiência e mais maturidade do que alguém de 50 anos. A maturidade vem de se desafiar cedo.",
+   "acao": "Escolha um desafio 'grande demais para sua idade ou cargo' (pedir uma reunião, liderar um projeto, fazer uma proposta) e marque a data para fazê-lo nas próximas 2 semanas.",
+   "pergunta": "Que desafio você está esperando 'estar pronto' para encarar?",
+   "desafios": [
+    "comecar",
+    "mentalidade"
+   ],
+   "plano": [
+    "Liste desafios que você acha que ainda não é a hora de encarar.",
+    "Escolha um que, se desse certo, mudaria sua trajetória.",
+    "Escreva o que você precisa preparar.",
+    "Prepare-se em no máximo 3 dias.",
+    "Marque a data.",
+    "Encare o desafio.",
+    "Registre no diário o que aprendeu."
+   ],
+   "faq": [
+    {
+     "p": "E se eu falhar por falta de experiência?",
+     "r": "É assim que a maturidade se forma. Escolha desafios em que o pior caso seja suportável e encare."
+    }
+   ],
+   "exemplos": {
+    "clt": "Peça para liderar um projeto antes de ter o cargo de líder.",
+    "empreender": "Marque reunião com um cliente grande mesmo sendo pequeno.",
+    "negocio": "Dê responsabilidade cedo para os jovens da equipe que mostram maturidade."
+   },
+   "mentor": "flavio"
+  },
+  {
+   "id": "g-tres-prisoes",
+   "mentor": "guto",
+   "video": "uLIwXs-cAvg",
+   "data": "2026-09-16",
+   "ordem": 1,
+   "inicio": 200,
+   "categoria": "vida",
+   "titulo": "As três prisões: identidade, capacidade e merecimento",
+   "ideia": "Para o Guto, todos vivemos presos em algum nível. Na prisão de identidade, você age conforme o que decidiu que é ('sou tímido'). Na de capacidade, troca 'não sei' por 'não consigo'. Na de merecimento, reconhece valor nos outros, mas não acredita que aquilo também é para você.",
+   "acao": "Escreva 3 frases que você repete sobre si mesmo. Marque em qual prisão cada uma está e reescreva-a de forma treinável (ex.: 'ainda não sei, estou aprendendo').",
+   "pergunta": "Que frase sobre você mesmo você repete há anos sem nunca ter questionado?",
+   "desafios": [
+    "mentalidade",
+    "comecar"
+   ],
+   "plano": [
+    "Anote durante o dia toda frase que você diz sobre si mesmo ('sou assim', 'não levo jeito').",
+    "Escolha as 3 que mais se repetem.",
+    "Classifique cada uma: identidade, capacidade ou merecimento.",
+    "Para as de capacidade, troque 'não consigo' por 'ainda não sei' e liste quem sabe e como aprendeu.",
+    "Para as de merecimento, escreva um motivo concreto pelo qual aquilo também pode ser para você.",
+    "Faça uma pequena ação que contrarie a frase de identidade mais forte.",
+    "Registre no diário o que sentiu ao agir diferente."
+   ],
+   "faq": [
+    {
+     "p": "Isso é só pensamento positivo?",
+     "r": "Não. A ideia é perceber que comportamentos repetidos sustentam a identidade. Muda-se a identidade com novas ações repetidas, não só com frases."
+    },
+    {
+     "p": "E se a limitação for real?",
+     "r": "Algumas são. O exercício serve para separar o que é limite real do que é só uma história que você aprendeu a contar."
+    }
+   ],
+   "exemplos": {
+    "clt": "'Não sou bom em apresentações' costuma ser prisão de capacidade: inscreva-se para apresentar algo pequeno na próxima reunião.",
+    "empreender": "'Empreender não é para gente como eu' é prisão de merecimento: liste pessoas com origem parecida com a sua que empreenderam.",
+    "negocio": "'Sou técnico, não sou vendedor' é prisão de identidade: assuma a venda de um cliente por semana."
+   }
+  },
+  {
+   "id": "g-tolerancia-desconforto",
+   "mentor": "guto",
+   "video": "uLIwXs-cAvg",
+   "data": "2026-09-16",
+   "ordem": 2,
+   "inicio": 370,
+   "categoria": "vida",
+   "titulo": "Não existe zona de conforto, existe zona de segurança",
+   "ideia": "O cérebro foi feito para economizar energia e nos proteger, então prefere o conhecido, mesmo que ruim. Por isso a pessoa fica anos numa situação desconfortável: ela já é 'segura'. O caminho, segundo o Guto, é aumentar aos poucos a tolerância ao desconforto do que é novo.",
+   "acao": "Escolha um desconforto pequeno e útil (falar numa reunião, fazer uma ligação de venda, treinar cedo) e pratique-o todos os dias desta semana.",
+   "pergunta": "Que situação ruim você mantém só porque já se acostumou com ela?",
+   "desafios": [
+    "mentalidade",
+    "foco",
+    "comecar"
+   ],
+   "plano": [
+    "Liste situações desconfortáveis que você mantém há muito tempo.",
+    "Liste também desconfortos novos que te fariam crescer.",
+    "Escolha um desconforto novo, pequeno o bastante para fazer hoje.",
+    "Faça e anote como se sentiu antes e depois.",
+    "Repita, aumentando um pouco a dificuldade.",
+    "Observe se a ansiedade diminuiu com a repetição.",
+    "Registre no diário qual desconforto virou rotina."
+   ],
+   "faq": [
+    {
+     "p": "Devo me forçar a qualquer custo?",
+     "r": "Não. A proposta é aumentar a tolerância aos poucos. Se algo causa sofrimento intenso, procure apoio profissional."
+    }
+   ],
+   "exemplos": {
+    "clt": "Peça feedback ao seu gestor uma vez por semana.",
+    "empreender": "Faça uma oferta por dia, mesmo com medo do 'não'.",
+    "negocio": "Tenha a conversa difícil que você vem adiando com um sócio, cliente ou funcionário."
+   }
+  },
+  {
+   "id": "g-cerebro-repete",
+   "mentor": "guto",
+   "video": "uLIwXs-cAvg",
+   "data": "2026-09-16",
+   "ordem": 3,
+   "inicio": 1090,
+   "categoria": "carreira",
+   "titulo": "Para o cérebro, vale o que você repete, não o que você quer",
+   "ideia": "Querer algo não muda o cérebro, a repetição de comportamentos sim. O trabalho é diminuir a distância entre o que você pensa, o que fala e o que faz, até que pensamento e ação sejam a mesma coisa.",
+   "acao": "Escolha uma meta e escreva o comportamento diário mínimo que a sustenta. Repita esse comportamento todos os dias por 7 dias, mesmo sem vontade.",
+   "pergunta": "Qual comportamento você repete hoje que contradiz o que diz querer?",
+   "desafios": [
+    "foco",
+    "mentalidade"
+   ],
+   "plano": [
+    "Escreva uma meta importante.",
+    "Escreva o que você repete hoje que vai contra ela.",
+    "Defina o comportamento mínimo diário a favor da meta (10 a 30 minutos).",
+    "Faça o comportamento hoje.",
+    "Faça de novo, no mesmo horário.",
+    "Note se ficou mais fácil.",
+    "Registre no diário quantos dias você repetiu."
+   ],
+   "faq": [
+    {
+     "p": "E nos dias sem vontade?",
+     "r": "É justamente neles que a repetição conta. Faça a versão mínima, mas faça."
+    }
+   ],
+   "exemplos": {
+    "clt": "Quer promoção? Repita diariamente o comportamento de quem já está no cargo, como entregar antes do prazo.",
+    "empreender": "Quer abrir o negócio? Dedique 30 minutos todos os dias a ele, no mesmo horário.",
+    "negocio": "Quer uma equipe pontual? Seja o primeiro a chegar todos os dias."
+   }
+  },
+  {
+   "id": "g-virtudes-da-meta",
+   "mentor": "guto",
+   "video": "uLIwXs-cAvg",
+   "data": "2026-09-16",
+   "ordem": 4,
+   "inicio": 1300,
+   "categoria": "negocio",
+   "titulo": "Quem fatura o que você quer já é quem?",
+   "ideia": "Pense no faturamento que você deseja e liste as virtudes de quem o alcança: disciplina, autocontrole, coragem, paciência. Depois circule as que você ainda não tem. Para o Guto, virtude não é por conveniência: o autocontrole precisa valer no negócio e também em casa.",
+   "acao": "Escreva o faturamento mensal que você quer, liste 8 virtudes de quem chega lá e circule as que faltam. Escolha uma para treinar esta semana em todas as áreas da vida.",
+   "pergunta": "Que virtude você exige no trabalho, mas abandona em casa?",
+   "desafios": [
+    "dinheiro",
+    "mentalidade",
+    "foco"
+   ],
+   "plano": [
+    "Escreva o número de faturamento ou renda que você quer.",
+    "Liste 8 virtudes de quem chega nesse número.",
+    "Circule as que você ainda não tem.",
+    "Escolha uma para treinar.",
+    "Defina como treiná-la no trabalho.",
+    "Defina como treiná-la em casa ou na saúde.",
+    "Registre no diário um momento em que você praticou essa virtude."
+   ],
+   "faq": [
+    {
+     "p": "Por que treinar em casa se a meta é financeira?",
+     "r": "Porque, segundo o Guto, virtude que só aparece quando convém é maquiagem. O hábito se forma em todas as áreas ao mesmo tempo."
+    }
+   ],
+   "exemplos": {
+    "clt": "Use como meta o salário do próximo cargo e treine a virtude que separa você dele.",
+    "empreender": "Defina o faturamento do primeiro ano e veja que virtude precisa crescer antes do negócio.",
+    "negocio": "Faça o exercício com seus líderes usando a meta anual da empresa."
+   }
+  },
+  {
+   "id": "g-teto-financeiro",
+   "mentor": "guto",
+   "video": "uLIwXs-cAvg",
+   "data": "2026-09-16",
+   "ordem": 5,
+   "inicio": 650,
+   "categoria": "negocio",
+   "titulo": "Quando você bate o teto, o cérebro quer voltar",
+   "ideia": "Ao ultrapassar um teto financeiro, o desconhecido gera insegurança, e a pessoa tende a se desorganizar, desacelerar ou criar conflitos para voltar ao nível antigo. O Guto lida com isso alinhando expectativas com a esposa e decidindo quem não pode ficar para trás.",
+   "acao": "Escreva seu maior teto de renda até hoje e o que você fez logo depois de chegar nele. Converse com quem vive com você sobre o próximo nível e o preço dele.",
+   "pergunta": "Que comportamento seu aparece sempre que você está prestes a crescer?",
+   "desafios": [
+    "dinheiro",
+    "mentalidade"
+   ],
+   "plano": [
+    "Lembre o melhor mês ou ano financeiro que você já teve.",
+    "Escreva o que aconteceu nos meses seguintes.",
+    "Identifique comportamentos de autossabotagem (gastos, desorganização, conflitos).",
+    "Defina o próximo nível que você quer.",
+    "Escreva o preço desse nível: horas, mudanças, renúncias.",
+    "Converse com sua família e alinhem expectativas.",
+    "Registre no diário o acordo feito."
+   ],
+   "faq": [
+    {
+     "p": "Isso significa deixar as pessoas para trás?",
+     "r": "Ele fala em decidir quem não pode ficar para trás (no caso dele, esposa e filho) e respeitar quem não quer acompanhar, sem forçar ninguém."
+    }
+   ],
+   "exemplos": {
+    "clt": "Depois de um aumento, cuidado para o custo de vida não subir na mesma proporção.",
+    "empreender": "Combine com a família como será a rotina nos primeiros anos do negócio.",
+    "negocio": "Se o faturamento estacionou depois de um recorde, procure o comportamento que mudou depois dele."
+   }
+  },
+  {
+   "id": "g-decisao-e-corte",
+   "mentor": "guto",
+   "video": "uLIwXs-cAvg",
+   "data": "2026-09-16",
+   "ordem": 6,
+   "inicio": 1550,
+   "categoria": "vida",
+   "titulo": "Decidir é cortar",
+   "ideia": "O Guto lembra que 'decisão' vem de cisão, corte. Para um novo comportamento florescer, é preciso se afastar de ambientes que ridicularizam a mudança. Quem sai de uma bolha passa por um período de solidão até encontrar a nova tribo.",
+   "acao": "Escreva uma decisão recente e liste o que precisa ser cortado para ela se sustentar (lugar, hábito, grupo, horário). Corte uma coisa esta semana.",
+   "pergunta": "Que ambiente faz você voltar a ser quem não quer mais ser?",
+   "desafios": [
+    "decidir",
+    "foco"
+   ],
+   "plano": [
+    "Escreva a decisão mais importante que você tomou este ano.",
+    "Liste ambientes e hábitos que a enfraquecem.",
+    "Escolha um corte possível esta semana.",
+    "Faça o corte.",
+    "Procure um ambiente que reforce a nova decisão (grupo, curso, comunidade).",
+    "Participe dele pela primeira vez.",
+    "Registre no diário como foi a semana."
+   ],
+   "faq": [
+    {
+     "p": "Preciso cortar amigos?",
+     "r": "Não necessariamente pessoas: às vezes é um horário, um lugar ou um tipo de programa. O ponto é proteger o novo comportamento."
+    }
+   ],
+   "exemplos": {
+    "clt": "Quer estudar à noite? Corte o happy hour de segunda a quinta.",
+    "empreender": "Corte uma hora de redes sociais por dia e coloque-a no projeto.",
+    "negocio": "Corte um cliente ou produto que suga energia e não dá resultado."
+   }
+  },
+  {
+   "id": "g-crencas-herdadas",
+   "mentor": "guto",
+   "video": "uLIwXs-cAvg",
+   "data": "2026-09-16",
+   "ordem": 7,
+   "inicio": 1620,
+   "categoria": "vida",
+   "titulo": "De quem é essa frase que você repete?",
+   "ideia": "Muitas crenças vêm de frases ouvidas por anos em casa. O Guto percebeu que nunca teve um carro de dois lugares porque o pai dizia que era 'carro de egoísta', para justificar não poder comprar. Ele propõe olhar a origem com amor: ficar com o que foi bom e devolver o que não serve.",
+   "acao": "Liste 3 frases sobre dinheiro, trabalho ou sucesso que você ouvia na infância. Para cada uma, escreva quem dizia, por que dizia e se ela ainda faz sentido para você.",
+   "pergunta": "Que crença sua é, na verdade, uma frase de outra pessoa?",
+   "desafios": [
+    "mentalidade",
+    "dinheiro"
+   ],
+   "plano": [
+    "Escreva frases que você ouvia em casa sobre dinheiro.",
+    "Escreva frases sobre trabalho e sucesso.",
+    "Para cada uma, anote quem dizia e em que contexto.",
+    "Marque as que ainda te servem.",
+    "Reescreva as que não servem com a sua própria crença.",
+    "Agradeça mentalmente pelo que recebeu de bom.",
+    "Registre no diário a crença que você decidiu mudar."
+   ],
+   "faq": [
+    {
+     "p": "Isso não é desrespeitar meus pais?",
+     "r": "Para ele, discordar com amor não faz de você um mau filho. Ele vê ser melhor que os pais como uma forma de honrá-los."
+    }
+   ],
+   "exemplos": {
+    "clt": "'Emprego bom é emprego estável' pode estar te prendendo num lugar sem crescimento.",
+    "empreender": "'Rico é tudo desonesto' pode estar sabotando sua vontade de crescer.",
+    "negocio": "'Não se cobra caro de conhecido' pode estar derrubando sua margem."
+   }
+  },
+  {
+   "id": "g-tres-filtros",
+   "mentor": "guto",
+   "video": "U5-bEaOsOxo",
+   "data": "2026-09-01",
+   "ordem": 1,
+   "inicio": 690,
+   "categoria": "vida",
+   "titulo": "Os três filtros antes de ouvir ou falar",
+   "ideia": "O Guto usa os três filtros atribuídos a Sócrates: é verdade? É bom? É útil? Se não passa, não vale ouvir nem repetir. Para ele, pôr atenção no que não controlamos (a vida dos outros) é uma fuga para não olhar para nós mesmos.",
+   "acao": "Por 7 dias, antes de contar ou ouvir algo sobre alguém, aplique os três filtros. Anote quantas vezes você mudou de assunto.",
+   "pergunta": "Quanta energia sua vai para assuntos que não passam nos três filtros?",
+   "desafios": [
+    "foco",
+    "mentalidade"
+   ],
+   "plano": [
+    "Escreva os três filtros num lugar visível.",
+    "Aplique-os na primeira conversa do dia.",
+    "Quando alguém trouxer fofoca, pergunte gentilmente se é verdade e útil.",
+    "Observe quantas vezes você mesmo começa assuntos que não passam.",
+    "Troque um desses momentos por uma conversa útil.",
+    "Faça o mesmo com o que você consome nas redes.",
+    "Registre no diário o tempo e a energia recuperados."
+   ],
+   "faq": [
+    {
+     "p": "Não vou parecer antipático?",
+     "r": "Dá para ser gentil: mude o assunto ou responda que prefere não comentar sem saber os fatos."
+    }
+   ],
+   "exemplos": {
+    "clt": "Evite a 'rádio corredor': ela consome energia e reputação.",
+    "empreender": "Aplique os filtros às opiniões sobre sua ideia: sem verdade nem utilidade, descarte.",
+    "negocio": "Crie a regra na empresa: só se discute um problema com fato e proposta."
+   }
+  },
+  {
+   "id": "g-cinco-fugas",
+   "mentor": "guto",
+   "video": "U5-bEaOsOxo",
+   "data": "2026-09-01",
+   "ordem": 2,
+   "inicio": 750,
+   "categoria": "vida",
+   "titulo": "As cinco fugas e o silêncio",
+   "ideia": "Álcool, comida, sexo, celular e televisão viram fugas quando usados para não sentir. O Guto ficou 14 dias sem essas fugas de propósito e percebeu o 'barulho' interno que elas escondiam. Celebrar com moderação é diferente de fugir.",
+   "acao": "Escolha a fuga que você mais usa e faça 7 dias sem ela, ou com um limite claro. Use o tempo livre para ficar em silêncio por 10 minutos por dia e anote o que aparece.",
+   "pergunta": "Do que você foge quando pega o celular sem motivo?",
+   "desafios": [
+    "foco",
+    "mentalidade"
+   ],
+   "plano": [
+    "Identifique qual das cinco fugas você mais usa e em que momento do dia.",
+    "Defina a regra dos próximos dias (zero ou um limite claro).",
+    "Fique 10 minutos em silêncio, sem tela, e anote o que pensar.",
+    "Repita o silêncio e procure um padrão nos pensamentos.",
+    "Escolha um incômodo que apareceu e defina uma ação sobre ele.",
+    "Faça essa ação.",
+    "Registre no diário o que você descobriu sem a fuga."
+   ],
+   "faq": [
+    {
+     "p": "E se for difícil demais parar?",
+     "r": "Comece com um limite em vez de zero. Se sentir que não consegue controlar o uso, procure ajuda profissional."
+    }
+   ],
+   "exemplos": {
+    "clt": "Troque o celular no intervalo por 10 minutos de caminhada sem fone.",
+    "empreender": "Troque a série da noite por 30 minutos de trabalho no projeto.",
+    "negocio": "Faça reuniões com celulares fora da mesa e veja a diferença no foco."
+   }
+  },
+  {
+   "id": "g-disciplina-antes",
+   "mentor": "guto",
+   "video": "U5-bEaOsOxo",
+   "data": "2026-09-01",
+   "ordem": 3,
+   "inicio": 1090,
+   "categoria": "carreira",
+   "titulo": "A disciplina vem antes da motivação",
+   "ideia": "Muita gente espera se sentir motivada para agir. O Guto inverte: a disciplina leva à execução, a execução gera pequenos resultados e são eles que trazem a motivação. Ele também separa resultado (progresso no caminho) de vitória (a meta batida).",
+   "acao": "Defina uma tarefa importante que você só faz 'quando dá vontade' e marque um horário fixo para ela todos os dias. Anote um pequeno resultado por dia.",
+   "pergunta": "Que tarefa você adia esperando ter vontade?",
+   "desafios": [
+    "foco",
+    "comecar"
+   ],
+   "plano": [
+    "Escolha a tarefa importante que você mais adia.",
+    "Defina horário fixo e duração curta (25 minutos).",
+    "Execute no horário, mesmo sem vontade.",
+    "Anote um microrresultado do dia.",
+    "Repita e compare a motivação antes e depois.",
+    "Aumente a duração se fizer sentido.",
+    "Registre no diário a lista de microrresultados da semana."
+   ],
+   "faq": [
+    {
+     "p": "Qual a diferença entre resultado e vitória?",
+     "r": "Vitória é bater a meta. Resultado é o progresso no caminho, como mais ligações feitas ou melhor conversão. Celebrar resultados mantém você jogando até a vitória."
+    }
+   ],
+   "exemplos": {
+    "clt": "Estude para a certificação 25 minutos todo dia antes do trabalho.",
+    "empreender": "Bloqueie 1 hora fixa por dia para o negócio, como se fosse uma reunião.",
+    "negocio": "Faça a reunião semanal de números sempre no mesmo dia, mesmo nos meses ruins."
+   }
+  },
+  {
+   "id": "g-regra-dia-ruim",
+   "mentor": "guto",
+   "video": "U5-bEaOsOxo",
+   "data": "2026-09-01",
+   "ordem": 4,
+   "inicio": 1350,
+   "categoria": "vida",
+   "titulo": "Um dia ruim, tudo bem. Dois, não.",
+   "ideia": "O Guto aceita ter um dia ruim, mas não deixa virar dois. No segundo, ele pergunta 'por que estou sentindo isso?' e muda o estado emocional de propósito: música, movimento, conversa. Para ele, alta performance é entregar o melhor possível de cada dia, não estar sempre no limite.",
+   "acao": "Monte seu 'kit de virada' com 3 coisas que mudam seu estado emocional (uma música, uma caminhada, uma ligação). Use-o no próximo dia ruim.",
+   "pergunta": "Quando foi a última vez que um dia ruim virou uma semana ruim?",
+   "desafios": [
+    "foco",
+    "mentalidade"
+   ],
+   "plano": [
+    "Lembre seus últimos dias ruins e o que os provocou.",
+    "Escreva o que te ajudou a sair deles.",
+    "Monte seu kit de virada com 3 ações rápidas.",
+    "Deixe o kit visível (notas do celular, papel na mesa).",
+    "No próximo dia ruim, pergunte 'por que estou sentindo isso?' e use o kit.",
+    "Avalie se o dia seguinte foi melhor.",
+    "Registre no diário o que funcionou."
+   ],
+   "faq": [
+    {
+     "p": "E se os dias ruins forem frequentes?",
+     "r": "Tristeza ou desânimo frequentes podem precisar de cuidado profissional. Procure um psicólogo ou médico, isso também é autorresponsabilidade."
+    }
+   ],
+   "exemplos": {
+    "clt": "Num dia ruim no trabalho, entregue o essencial e cuide de você à noite para não levar para o dia seguinte.",
+    "empreender": "Depois de um 'não' difícil, use o kit e faça a próxima oferta no dia seguinte.",
+    "negocio": "Ensine a equipe a reconhecer dias ruins e voltar rápido, sem culpa."
+   }
+  },
+  {
+   "id": "g-tempo-prioridade",
+   "mentor": "guto",
+   "video": "U5-bEaOsOxo",
+   "data": "2026-09-01",
+   "ordem": 5,
+   "inicio": 1450,
+   "categoria": "vida",
+   "titulo": "Sua agenda mostra suas prioridades reais",
+   "ideia": "O Guto pede aos mentorados que listem as 5 coisas mais importantes da vida e depois contem quanto tempo dão a cada uma. Ao fazer o exercício, ele mesmo percebeu que não tinha ficado nem 30 minutos com o filho naquela semana, desmarcou tudo e voltou para casa.",
+   "acao": "Liste suas 5 prioridades e anote quanto tempo real deu a cada uma na última semana. Corrija a maior distorção ainda hoje.",
+   "pergunta": "Se alguém visse só a sua agenda, diria que suas prioridades são quais?",
+   "desafios": [
+    "foco",
+    "decidir"
+   ],
+   "plano": [
+    "Liste as 5 coisas mais importantes da sua vida, em ordem.",
+    "Some o tempo dedicado a cada uma na última semana.",
+    "Compare a ordem da lista com a ordem do tempo.",
+    "Identifique a maior distorção.",
+    "Bloqueie na agenda um tempo para a prioridade esquecida.",
+    "Cumpra esse bloco.",
+    "Registre no diário como foi."
+   ],
+   "faq": [
+    {
+     "p": "Não tenho tempo para nada.",
+     "r": "O exercício mostra justamente para onde o tempo está indo. Quase sempre há algo menos importante ocupando o lugar."
+    }
+   ],
+   "exemplos": {
+    "clt": "Proteja um horário com a família que nenhuma hora extra pode invadir.",
+    "empreender": "Se o negócio é prioridade, ele precisa de horário fixo na agenda, não do tempo que sobra.",
+    "negocio": "Revise a agenda: quanto do seu tempo vai para o que só você pode fazer?"
+   }
+  }
+ ]
 }
